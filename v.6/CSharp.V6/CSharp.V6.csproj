@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AutoPropertyInitializers.cs" />
-    <Compile Include="Features\UsingStatic.cs" />
+    <Compile Include="Features\DictionaryInitializers.cs" />
+    <Compile Include="Features\AutoPropertyInitializers.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsingStaticClass.cs" />
+    <Compile Include="Features\UsingStaticClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

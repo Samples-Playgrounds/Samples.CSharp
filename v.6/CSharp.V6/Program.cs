@@ -12,6 +12,8 @@ namespace CSharp.V6
 		{
 			UsingStaticClass.UsingStaticClassMethodsWithoutClassSpecification();
 
+			DictionaryInitializers.DictionaryInitializer();
+
 			return;
 		}
 	}
