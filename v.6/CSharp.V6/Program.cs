@@ -13,6 +13,8 @@ namespace CSharp.V6
 			UsingStaticClass.UsingStaticClassMethodsWithoutClassSpecification();
 
 			DictionaryInitializers.DictionaryInitializer();
+			nameofExpression.nameof_ExpressionDemo();
+
 
 			return;
 		}
