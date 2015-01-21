@@ -15,6 +15,7 @@ namespace CSharp.V6
 			DictionaryInitializers.DictionaryInitializer();
 			nameofExpression.nameof_ExpressionDemo();
 
+			ExceptionFilters.ExceptionFiltersSample();
 
 			return;
 		}

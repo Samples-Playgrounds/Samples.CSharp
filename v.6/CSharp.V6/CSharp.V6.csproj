@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Features\DictionaryInitializers.cs" />
     <Compile Include="Features\AutoPropertyInitializers.cs" />
+    <Compile Include="Features\ExceptionFilters.cs" />
     <Compile Include="Features\nameof.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
