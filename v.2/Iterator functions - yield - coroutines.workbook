@@ -1,0 +1,100 @@
+---
+uti: com.xamarin.workbook
+id: 3f2d6178-0809-4109-b570-ce05bcfadafb
+title: Iterator functions - yield - coroutines
+platforms:
+- Console
+---
+
+# Iterator functions - yield - coroutines
+
+Iterators - syntactic sugar
+
+* \`yield return;\`
+
+* \`yield break;\`\
+  to finish iterating (not single loop, but whole iteration)
+
+* state machine created by compiler using \`MoveNext()\`
+
+* returns
+
+* IEnumerable or IEnumerable\<T>
+
+* IEnumerator or IEnumerator\<T>
+
+```csharp
+public class Data 
+{
+    public int Id
+    {
+        get;
+        set;
+    }
+
+    public Data(int i)
+    {
+        Id = i;
+
+        return;
+    }
+
+    public static IEnumerable<Data> GenerateSequence(int count)
+    {
+        for (int i = 0; i <= count; i++) 
+         {
+             yield return new Data(i);
+         }
+    }
+
+    public static IEnumerable<Data> GenerateSequenceEven(int count)
+    {
+        for (int i = 0; i <= count; i++) 
+         {
+             if ( i % 2 == 0)
+             {
+                 yield return new Data(i);
+             }
+         }
+    }
+
+    public static IEnumerable<Data> GenerateSequenceOdd(int count)
+    {
+        for (int i = 0; i <= count; i++) 
+         {
+             if ( i % 2 != 0)
+             {
+                 yield return new Data(i);
+             }
+         }
+    }
+
+    public static IEnumerable<Data> GenerateSequenceEvenSingleLoop(int count)
+    {
+        for (int i = 0; i <= count; i++) 
+         {
+             if ( i % 2 == 0)
+             {
+                 yield return new Data(i);
+             }
+             else
+             {
+                 yield break;
+             }
+         }
+    }}
+```
+
+
+
+```csharp
+Data.GenerateSequence(10);
+```
+
+```csharp
+Data.GenerateSequenceEven(6);
+```
+
+```csharp
+Data.GenerateSequenceEvenSingleLoop(6);
+```
