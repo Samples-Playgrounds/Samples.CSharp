@@ -96,5 +96,9 @@ Data.GenerateSequenceEven(6);
 ```
 
 ```csharp
+Data.GenerateSequenceOdd(6);
+```
+
+```csharp
 Data.GenerateSequenceEvenSingleLoop(6);
 ```
