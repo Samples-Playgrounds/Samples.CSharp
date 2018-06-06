@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{13AB4AD2-D077-48E0-B6F2-791BC25EB413}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Tests.CommonShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\SetUpFixture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\UnitTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.BenchmarkTests\BenchmarkTests.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.String\Concatenation_Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.String\Concatenation_Variables.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.BenchmarkTests\" />
+    <Folder Include="$(MSBuildThisFileDirectory)System.String\" />
+    <Folder Include="$(MSBuildThisFileDirectory)control-structures\" />
+  </ItemGroup>
+</Project>
