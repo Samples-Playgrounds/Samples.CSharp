@@ -12,8 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\SetUpFixture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\UnitTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.BenchmarkTests\BenchmarkTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System.String\Concatenation_Constants.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System.String\Concatenation_Variables.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.String\Concatenation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />

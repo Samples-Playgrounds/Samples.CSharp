@@ -71,31 +71,7 @@ namespace Benchmarks.CommonShared
         public void Benchmark_System_String_Concatenation()
         {
             BenchmarkRunner
-                .Run<System_String_Concatenation_Constants>
-                (
-                    ManualConfig
-                    .Create(new Config())
-                    //.WithLaunchCount(1)     // benchmark process will be launched only once
-                    //.WithIterationTime(100) // 100ms per iteration
-                    //.WithWarmupCount(3)     // 3 warmup iteration
-                    //.WithTargetCount(3)     // 3 target iteration
-                    //.With(BenchmarkDotNet.Jobs.Job.RyuJitX64)
-                    //.With(BenchmarkDotNet.Jobs.Job.Core)
-                    //.With(BenchmarkDotNet.Validators.ExecutionValidator.FailOnError)
-                    .WithArtifactsPath
-                    (
-                        #if NUNIT
-                        TestContext.CurrentContext.TestDirectory
-                        #elif XUNIT
-                        Environment.CurrentDirectory
-                        #elif MSTEST
-                        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
-                        #endif
-                    )
-                );
-
-            BenchmarkRunner
-                .Run<System_String_Concatenation_Variables>
+                .Run<System_String_Concatenation>
                 (
                     ManualConfig
                     .Create(new Config())

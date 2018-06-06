@@ -70,7 +70,7 @@ using System.Collections.ObjectModel;
 namespace UnitTests.CSharp.Performance
 {
     [MemoryDiagnoser]
-    public partial class System_String_Concatenation_Variables
+    public partial class System_String_Concatenation
     {
         Stopwatch sw = null;
 
@@ -79,13 +79,13 @@ namespace UnitTests.CSharp.Performance
         string e = "everything";
 
         [Benchmark]
-        public string OperatorPlus()
+        public string Variables_OperatorPlus()
         {
             return s + a + e;
         }
 
         [Test]
-        public void OperatorPlus_Test()
+        public void Variables_OperatorPlus_Test()
         {
             Console.WriteLine($"OperatorPlus_Test");
             //====================================================================================================
@@ -97,7 +97,7 @@ namespace UnitTests.CSharp.Performance
             //----------------------------------------------------------------------------------------------------
             // Act
             //      extracted to atomic Benchmark method
-            string s_concat = OperatorPlus();
+            string s_concat = Variables_OperatorPlus();
 
             sw.Stop();
             Console.WriteLine($"OperatorPlus_Test");
@@ -119,13 +119,13 @@ namespace UnitTests.CSharp.Performance
         }
 
         [Benchmark]
-        public string String_Concat()
+        public string Variables_String_Concat()
         {
             return string.Concat(s, a, e);
         }
 
         [Test]
-        public void String_Concat_Test()
+        public void Variables_String_Concat_Test()
         {
             Console.WriteLine($"OperatorPlus_Test");
             //====================================================================================================
@@ -137,7 +137,7 @@ namespace UnitTests.CSharp.Performance
             //----------------------------------------------------------------------------------------------------
             // Act
             //      extracted to atomic Benchmark method
-            string s_concat = String_Concat();
+            string s_concat = Variables_String_Concat();
 
             sw.Stop();
             Console.WriteLine($"OperatorPlus_Test");
@@ -159,7 +159,7 @@ namespace UnitTests.CSharp.Performance
         }
 
         [Benchmark]
-        public string String_Join()
+        public string Variables_String_Join()
         {
             return string.Join(s, a, e);
         }
@@ -177,7 +177,7 @@ namespace UnitTests.CSharp.Performance
             //----------------------------------------------------------------------------------------------------
             // Act
             //      extracted to atomic Benchmark method
-            string s_concat = String_Join();
+            string s_concat = Variables_String_Join();
 
             sw.Stop();
             Console.WriteLine($"OperatorPlus_Test");
@@ -199,13 +199,13 @@ namespace UnitTests.CSharp.Performance
         }
 
         [Benchmark]
-        public string String_Format()
+        public string Variables_String_Format()
         {
             return string.Format("{0},{1},{2}", s, a, e);
         }
 
         [Test]
-        public void String_Format_Test()
+        public void Variables_String_Format_Test()
         {
             Console.WriteLine($"OperatorPlus_Test");
             //====================================================================================================
@@ -217,7 +217,7 @@ namespace UnitTests.CSharp.Performance
             //----------------------------------------------------------------------------------------------------
             // Act
             //      extracted to atomic Benchmark method
-            string s_concat = String_Format();
+            string s_concat = Variables_String_Format();
 
             sw.Stop();
             Console.WriteLine($"OperatorPlus_Test");
@@ -239,7 +239,7 @@ namespace UnitTests.CSharp.Performance
         }
 
         [Benchmark]
-        public string StringBuilder()
+        public string Variables_StringBuilder()
         {
             return 
                 (new System.Text.StringBuilder().Append(s).Append(a).Append(e))
@@ -247,7 +247,7 @@ namespace UnitTests.CSharp.Performance
         }
 
         [Test]
-        public void StringBuilder_Test()
+        public void Variables_StringBuilder_Test()
         {
             Console.WriteLine($"OperatorPlus_Test");
             //====================================================================================================
@@ -259,7 +259,7 @@ namespace UnitTests.CSharp.Performance
             //----------------------------------------------------------------------------------------------------
             // Act
             //      extracted to atomic Benchmark method
-            string s_concat = StringBuilder();
+            string s_concat = Variables_StringBuilder();
 
             sw.Stop();
             Console.WriteLine($"OperatorPlus_Test");
@@ -281,14 +281,14 @@ namespace UnitTests.CSharp.Performance
         }
 
         [Benchmark]
-        public string LINQ_Aggregate()
+        public string Variables_LINQ_Aggregate()
         {
             return
                 new[] { s, a, e }.Aggregate((tmp, word) => $"{tmp}{word}" );
         }
 
         [Test]
-        public void LINQ_Aggregate_Test()
+        public void Variables_LINQ_Aggregate_Test()
         {
             Console.WriteLine($"OperatorPlus_Test");
             //====================================================================================================
@@ -300,7 +300,7 @@ namespace UnitTests.CSharp.Performance
             //----------------------------------------------------------------------------------------------------
             // Act
             //      extracted to atomic Benchmark method
-            string s_concat = StringBuilder();
+            string s_concat = Variables_StringBuilder();
 
             sw.Stop();
             Console.WriteLine($"OperatorPlus_Test");
@@ -320,5 +320,249 @@ namespace UnitTests.CSharp.Performance
 
             return;
         }
+
+        [Benchmark]
+        public string OperatorPlus()
+        {
+            return "something" + "anything" + "everything";
+        }
+
+        [Test]
+        public void OperatorPlus_Test()
+        {
+            Console.WriteLine($"OperatorPlus_Test");
+            //====================================================================================================
+            //  Arrange
+            //  reading data from files
+
+            sw = Stopwatch.StartNew();
+
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            //      extracted to atomic Benchmark method
+            string s = OperatorPlus();
+
+            sw.Stop();
+            Console.WriteLine($"OperatorPlus_Test");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            //#if NUNIT
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#elif XUNIT
+            //Assert.Equal(3.00, mean, 5);
+            //#elif MSTEST
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#endif
+            //====================================================================================================
+
+            return;
+        }
+
+        [Benchmark]
+        public string Constants_String_Concat()
+        {
+            return string.Concat("something", "anything", "everything");
+        }
+
+        [Test]
+        public void Constants_String_Concat_Test()
+        {
+            Console.WriteLine($"OperatorPlus_Test");
+            //====================================================================================================
+            //  Arrange
+            //  reading data from files
+
+            sw = Stopwatch.StartNew();
+
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            //      extracted to atomic Benchmark method
+            string s = Constants_String_Concat();
+
+            sw.Stop();
+            Console.WriteLine($"OperatorPlus_Test");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            //#if NUNIT
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#elif XUNIT
+            //Assert.Equal(3.00, mean, 5);
+            //#elif MSTEST
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#endif
+            //====================================================================================================
+
+            return;
+        }
+
+        [Benchmark]
+        public string Constants_String_Join()
+        {
+            return string.Join("something", "anything", "everything");
+        }
+
+        [Test]
+        public void Constants_String_Join_Test()
+        {
+            Console.WriteLine($"OperatorPlus_Test");
+            //====================================================================================================
+            //  Arrange
+            //  reading data from files
+
+            sw = Stopwatch.StartNew();
+
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            //      extracted to atomic Benchmark method
+            string s = Constants_String_Join();
+
+            sw.Stop();
+            Console.WriteLine($"OperatorPlus_Test");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            //#if NUNIT
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#elif XUNIT
+            //Assert.Equal(3.00, mean, 5);
+            //#elif MSTEST
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#endif
+            //====================================================================================================
+
+            return;
+        }
+
+        [Benchmark]
+        public string Constants_String_Format()
+        {
+            return string.Format("{0},{1},{2}", "something", "anything", "everything");
+        }
+
+        [Test]
+        public void Constants_String_Format_Test()
+        {
+            Console.WriteLine($"OperatorPlus_Test");
+            //====================================================================================================
+            //  Arrange
+            //  reading data from files
+
+            sw = Stopwatch.StartNew();
+
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            //      extracted to atomic Benchmark method
+            string s = Constants_String_Format();
+
+            sw.Stop();
+            Console.WriteLine($"OperatorPlus_Test");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            //#if NUNIT
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#elif XUNIT
+            //Assert.Equal(3.00, mean, 5);
+            //#elif MSTEST
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#endif
+            //====================================================================================================
+
+            return;
+        }
+
+        [Benchmark]
+        public string Constants_StringBuilder()
+        {
+            return
+                (new System.Text.StringBuilder().Append("something").Append("anything").Append("everything"))
+                .ToString();
+        }
+
+        [Test]
+        public void Constants_StringBuilder_Test()
+        {
+            Console.WriteLine($"OperatorPlus_Test");
+            //====================================================================================================
+            //  Arrange
+            //  reading data from files
+
+            sw = Stopwatch.StartNew();
+
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            //      extracted to atomic Benchmark method
+            string s = Constants_StringBuilder();
+
+            sw.Stop();
+            Console.WriteLine($"OperatorPlus_Test");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            //#if NUNIT
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#elif XUNIT
+            //Assert.Equal(3.00, mean, 5);
+            //#elif MSTEST
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#endif
+            //====================================================================================================
+
+            return;
+        }
+
+        [Benchmark]
+        public string Constants_LINQ_Aggregate()
+        {
+            return
+                new[] { "something", "anything", "everything" }.Aggregate((tmp, word) => $"{tmp}{word}");
+        }
+
+        [Test]
+        public void Constants_LINQ_Aggregate_Test()
+        {
+            Console.WriteLine($"OperatorPlus_Test");
+            //====================================================================================================
+            //  Arrange
+            //  reading data from files
+
+            sw = Stopwatch.StartNew();
+
+            //----------------------------------------------------------------------------------------------------
+            // Act
+            //      extracted to atomic Benchmark method
+            string s = Constants_StringBuilder();
+
+            sw.Stop();
+            Console.WriteLine($"OperatorPlus_Test");
+            Console.WriteLine($"          elapsed[ticks]     = {sw.ElapsedTicks}");
+            Console.WriteLine($"          elapsed[ms]        = {sw.Elapsed.TotalMilliseconds}");
+            sw.Reset();
+            //----------------------------------------------------------------------------------------------------
+            // Assert
+            //#if NUNIT
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#elif XUNIT
+            //Assert.Equal(3.00, mean, 5);
+            //#elif MSTEST
+            //Assert.AreEqual(3.00, mean, 0.00001);
+            //#endif
+            //====================================================================================================
+
+            return;
+        }
+
     }
 }
