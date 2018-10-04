@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\source\HolisticWare.Core.Math.Statistics.Descriptive.Sequential.NetStandard10\HolisticWare.Core.Math.Statistics.Descriptive.Sequential.NetStandard10.csproj" />
+    <None Remove=".DS_Store" />
   </ItemGroup>
   <Import Project="..\Benchmarks.CommonShared\Benchmarks.CommonShared.projitems" Label="Shared" Condition="Exists('..\Benchmarks.CommonShared\Benchmarks.CommonShared.projitems')" />
   <Import Project="..\..\Tests.CommonShared\Tests.CommonShared.projitems" Label="Shared" Condition="Exists('..\..\Tests.CommonShared\Tests.CommonShared.projitems')" />

@@ -12,13 +12,17 @@
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\SetUpFixture.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\UnitTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.BenchmarkTests\BenchmarkTests.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System.String\Concatenation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\String.Concatenation.Constants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\String.Concatenation.Variables..cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\String.Concatenation.Common..cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConotrolStructures\for_vs_foreach.Common..cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ConotrolStructures\for_vs_foreach.Constants.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Utilities\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.UnitTests.Portability\" />
     <Folder Include="$(MSBuildThisFileDirectory)Utilities\HolisticWare.BenchmarkTests\" />
-    <Folder Include="$(MSBuildThisFileDirectory)System.String\" />
-    <Folder Include="$(MSBuildThisFileDirectory)control-structures\" />
+    <Folder Include="$(MSBuildThisFileDirectory)System\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ConotrolStructures\" />
   </ItemGroup>
 </Project>

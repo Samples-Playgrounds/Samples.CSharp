@@ -57,10 +57,13 @@ using Fact = Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute;
 #endif
 
 using System.Linq;
-using UnitTests.CSharp.Performance;
 using System.IO;
 using System.Reflection;
 using System;
+
+using UnitTests.CSharp.Performance.System;
+using UnitTests.CSharp.Performance.ConotrolStructures;
+using BenchmarkDotNet.Jobs;
 
 namespace Benchmarks.CommonShared
 {
@@ -71,7 +74,37 @@ namespace Benchmarks.CommonShared
         public void Benchmark_System_String_Concatenation()
         {
             BenchmarkRunner
-                .Run<System_String_Concatenation>
+                .Run<String_Concatenation>
+                (
+                    ManualConfig
+                    .Create(new Config())
+                    //.WithLaunchCount(1)     // benchmark process will be launched only once
+                    //.WithIterationTime(100) // 100ms per iteration
+                    //.WithWarmupCount(3)     // 3 warmup iteration
+                    //.WithTargetCount(3)     // 3 target iteration
+                    //.With(BenchmarkDotNet.Jobs.Job.RyuJitX64)
+                    //.With(BenchmarkDotNet.Jobs.Job.Core)
+                    //.With(BenchmarkDotNet.Validators.ExecutionValidator.FailOnError)
+                    .WithArtifactsPath
+                    (
+                        #if NUNIT
+                        TestContext.CurrentContext.TestDirectory
+                        #elif XUNIT
+                        Environment.CurrentDirectory
+                        #elif MSTEST
+                        Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)
+                        #endif
+                    )
+                );
+
+            return;
+        }
+
+        [Test]
+        public void for_vs_foreach()
+        {
+            BenchmarkRunner
+                .Run<for_vs_foreach>
                 (
                     ManualConfig
                     .Create(new Config())
@@ -127,6 +160,19 @@ namespace Benchmarks.CommonShared
             #elif MSTEST
             string path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             #endif
+
+            Add(BenchmarkDotNet.Jobs.Job.Clr);
+            Add(BenchmarkDotNet.Jobs.Job.Core);
+            Add
+                (
+                    BenchmarkDotNet.Jobs.Job.Mono.With
+                        (
+                            new[] 
+                            { 
+                                new BenchmarkDotNet.Jobs.MonoArgument("--optimize=inline") 
+                            }
+                        ).WithId("Inlining enabled")
+                );
 
             ArtifactsPath = path;
 
