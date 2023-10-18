@@ -8,7 +8,7 @@ Intel Core i9-9880H CPU 2.30GHz, 1 CPU, 16 logical and 8 physical cores
 
 
 ```
-|                 Method |      Mean |     Error |    StdDev |
-|----------------------- |----------:|----------:|----------:|
-|     If_PatternMatching |  8.356 ns | 0.0621 ns | 0.0551 ns |
-| If_RelationalOperators | 10.016 ns | 0.0716 ns | 0.0635 ns |
+|                        Method |     Mean |     Error |    StdDev |
+|------------------------------ |---------:|----------:|----------:|
+|            IndexOf_String_API | 5.609 μs | 0.1112 μs | 0.1484 μs |
+| IndexOf_With_Pattern_Matching | 5.529 μs | 0.1105 μs | 0.1182 μs |

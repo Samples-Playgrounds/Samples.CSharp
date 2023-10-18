@@ -10,6 +10,8 @@ public partial class
                                     (
                                     )
     {
+        Console.WriteLine($"idx = {test_01.IndexOf("_")}");
+
         return test_01.IndexOf("_");
     }
 
@@ -22,6 +24,7 @@ public partial class
     {
         if (test_01.IndexOf("_") is int idx && idx > 0)
         {
+            Console.WriteLine($"idx = {idx}");
             return idx;
         }
 
