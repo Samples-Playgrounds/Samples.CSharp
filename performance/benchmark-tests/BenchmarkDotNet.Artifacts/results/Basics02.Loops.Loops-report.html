@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 <meta charset='utf-8' />
-<title>Basics02.Loops.Loops-20231018-104239</title>
+<title>Basics02.Loops.Loops-20240219-165843</title>
 
 <style type="text/css">
 	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
@@ -13,27 +13,27 @@
 </head>
 <body>
 <pre><code>
-BenchmarkDotNet=v0.13.5, OS=macOS 14.0 (23A344) [Darwin 23.0.0]
-Intel Core i9-9880H CPU 2.30GHz, 1 CPU, 16 logical and 8 physical cores
-.NET SDK=8.0.100-rc.2.23502.2
-  [Host]     : .NET 8.0.0 (8.0.23.47906), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.47906), X64 RyuJIT AVX2
+BenchmarkDotNet v0.13.12, macOS Sonoma 14.3.1 (23D60) [Darwin 23.3.0]
+Apple M2 Max, 1 CPU, 12 logical and 12 physical cores
+.NET SDK 9.0.100-preview.1.24101.2
+  [Host]     : .NET 9.0.0 (9.0.24.8009), Arm64 RyuJIT AdvSIMD
+  DefaultJob : .NET 9.0.0 (9.0.24.8009), Arm64 RyuJIT AdvSIMD
 </code></pre>
 <pre><code></code></pre>
 
 <table>
-<thead><tr><th>                                             Method</th><th>Mean</th><th>Error</th><th>StdDev</th>
+<thead><tr><th>Method                                             </th><th>Mean</th><th>Error</th><th>StdDev</th>
 </tr>
-</thead><tbody><tr><td>Foreach_Over_Array_Sum_As_Double</td><td>6.091 ns</td><td>0.0842 ns</td><td>0.0704 ns</td>
-</tr><tr><td>For_Over_Array_Sum_As_Double_Length_Recalculated</td><td>7.386 ns</td><td>0.1503 ns</td><td>0.1954 ns</td>
-</tr><tr><td>For_Over_Array_Sum_As_Double_Length_PreCalculted_long</td><td>9.531 ns</td><td>0.1763 ns</td><td>0.1810 ns</td>
-</tr><tr><td>For_Over_Array_Sum_As_Double_Length_PreCalculted_int</td><td>7.192 ns</td><td>0.1273 ns</td><td>0.0994 ns</td>
-</tr><tr><td>LINQ_Method_Syntax_Over_Array</td><td>7.343 ns</td><td>0.0634 ns</td><td>0.0529 ns</td>
-</tr><tr><td>LINQ_Query_Syntax_Over_Array_</td><td>49.376 ns</td><td>0.2477 ns</td><td>0.2196 ns</td>
-</tr><tr><td>Foreach_Over_Span_With_Sum_As_Double</td><td>6.286 ns</td><td>0.0752 ns</td><td>0.0667 ns</td>
-</tr><tr><td>For_Over_Span_With_Sum_As_Double_Length_Recalculated</td><td>6.210 ns</td><td>0.0519 ns</td><td>0.0433 ns</td>
-</tr><tr><td>For_Over_Span_With_Sum_As_Double_Length_PreCalculted_long</td><td>7.443 ns</td><td>0.1337 ns</td><td>0.1185 ns</td>
-</tr><tr><td>For_Over_Span_With_Sum_As_Double_Length_PreCalculted_int</td><td>6.743 ns</td><td>0.0477 ns</td><td>0.0446 ns</td>
+</thead><tbody><tr><td>Foreach_Over_Array_Sum_As_Double</td><td>4.369 ns</td><td>0.1008 ns</td><td>0.0943 ns</td>
+</tr><tr><td>For_Over_Array_Sum_As_Double_Length_Recalculated</td><td>5.768 ns</td><td>0.0730 ns</td><td>0.0682 ns</td>
+</tr><tr><td>For_Over_Array_Sum_As_Double_Length_PreCalculted_long</td><td>5.016 ns</td><td>0.0623 ns</td><td>0.0582 ns</td>
+</tr><tr><td>For_Over_Array_Sum_As_Double_Length_PreCalculted_int</td><td>4.618 ns</td><td>0.0524 ns</td><td>0.0437 ns</td>
+</tr><tr><td>LINQ_Method_Syntax_Over_Array</td><td>3.241 ns</td><td>0.0361 ns</td><td>0.0301 ns</td>
+</tr><tr><td>LINQ_Query_Syntax_Over_Array_</td><td>28.393 ns</td><td>0.3868 ns</td><td>0.3618 ns</td>
+</tr><tr><td>Foreach_Over_Span_With_Sum_As_Double</td><td>3.971 ns</td><td>0.0504 ns</td><td>0.0472 ns</td>
+</tr><tr><td>For_Over_Span_With_Sum_As_Double_Length_Recalculated</td><td>3.957 ns</td><td>0.0635 ns</td><td>0.0594 ns</td>
+</tr><tr><td>For_Over_Span_With_Sum_As_Double_Length_PreCalculted_long</td><td>4.240 ns</td><td>0.0499 ns</td><td>0.0467 ns</td>
+</tr><tr><td>For_Over_Span_With_Sum_As_Double_Length_PreCalculted_int</td><td>4.247 ns</td><td>0.0514 ns</td><td>0.0480 ns</td>
 </tr></tbody></table>
 </body>
 </html>

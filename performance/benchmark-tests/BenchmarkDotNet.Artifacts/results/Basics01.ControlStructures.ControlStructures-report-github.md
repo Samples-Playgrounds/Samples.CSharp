@@ -1,14 +1,14 @@
-``` ini
+```
 
-BenchmarkDotNet=v0.13.5, OS=macOS 14.0 (23A344) [Darwin 23.0.0]
-Intel Core i9-9880H CPU 2.30GHz, 1 CPU, 16 logical and 8 physical cores
-.NET SDK=8.0.100-rc.2.23502.2
-  [Host]     : .NET 8.0.0 (8.0.23.47906), X64 RyuJIT AVX2
-  DefaultJob : .NET 8.0.0 (8.0.23.47906), X64 RyuJIT AVX2
+BenchmarkDotNet v0.13.12, macOS Sonoma 14.3.1 (23D60) [Darwin 23.3.0]
+Apple M2 Max, 1 CPU, 12 logical and 12 physical cores
+.NET SDK 9.0.100-preview.1.24101.2
+  [Host]     : .NET 9.0.0 (9.0.24.8009), Arm64 RyuJIT AdvSIMD
+  DefaultJob : .NET 9.0.0 (9.0.24.8009), Arm64 RyuJIT AdvSIMD
 
 
 ```
-|                 Method |      Mean |     Error |    StdDev |
-|----------------------- |----------:|----------:|----------:|
-|     If_PatternMatching |  8.356 ns | 0.0621 ns | 0.0551 ns |
-| If_RelationalOperators | 10.016 ns | 0.0716 ns | 0.0635 ns |
+| Method                 | Mean     | Error     | StdDev    |
+|----------------------- |---------:|----------:|----------:|
+| If_PatternMatching     | 5.106 ns | 0.0471 ns | 0.0393 ns |
+| If_RelationalOperators | 8.499 ns | 0.0623 ns | 0.0583 ns |

@@ -9,6 +9,19 @@ dotnet run \
 BenchmarkDotNet.Reports.Summary summary = null;
 
 summary = BenchmarkDotNet.Running
+                           .BenchmarkRunner.Run<Basics01.ControlStructures.ControlStructures_IfEnabled_VS_Delegate>();
+System.IO.File.Move
+                (
+                    summary.LogFilePath,
+                    System.IO.Path.Combine
+                                        (
+                                            "..", "..", "..", 
+                                            "Basics01.ControlStructures.ControlStructures_IfEnabled_VS_Delegate.log"
+                                        ),
+                    true
+                );
+
+summary = BenchmarkDotNet.Running
                            .BenchmarkRunner.Run<Basics01.ControlStructures.ControlStructures>();
 System.IO.File.Move
                 (
