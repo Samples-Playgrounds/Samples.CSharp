@@ -1,9 +1,31 @@
 ﻿using System.Text.RegularExpressions;
 using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Order;
 
 namespace Holisticware.Library.Snippets.Regex;
 
 [MemoryDiagnoser]
+[ThreadingDiagnoser]
+[ExceptionDiagnoser]
+[AsciiDocExporter]
+[CsvExporter]
+[CsvMeasurementsExporter]
+[HtmlExporter]
+[PlainExporter]
+[RPlotExporter]
+[JsonExporterAttribute.Brief]
+[JsonExporterAttribute.BriefCompressed]
+[JsonExporterAttribute.Full]
+[JsonExporterAttribute.FullCompressed]
+[MarkdownExporterAttribute.Default]
+[MarkdownExporterAttribute.GitHub]
+[MarkdownExporterAttribute.StackOverflow]
+[MarkdownExporterAttribute.Atlassian]
+[XmlExporterAttribute.Brief]
+[XmlExporterAttribute.BriefCompressed]
+[XmlExporterAttribute.Full]
+[XmlExporterAttribute.FullCompressed]
+[Orderer(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
 public partial class
                                         Benchmarks_Regex
 {
