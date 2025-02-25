@@ -7,8 +7,5 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Holisticware.Library.Snippets.Regex\Holisticware.Library.Snippets.Regex.csproj" />
-  </ItemGroup>
 
 </Project>
