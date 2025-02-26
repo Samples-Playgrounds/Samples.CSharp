@@ -3,3 +3,147 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ecosystem-libraries", "ecosystem-libraries", "{1121251D-7961-4A83-BB38-EDED90EA3E0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Formatters-Serialization-Deserialization", "Formatters-Serialization-Deserialization", "{54B42E27-AA2F-4D3B-8EEA-071C2F77EE4B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "language-features", "language-features", "{BBBADD51-11E2-4832-AA76-BD743D1B2DAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "InputOutput-IO", "InputOutput-IO", "{32CD4D83-3D9E-4B8D-8C73-4C71C3977ADB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binary", "Binary", "{C3CB8482-CAB7-41C4-B707-E094F64D8473}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Textual-HumanReadable", "Textual-HumanReadable", "{2B524975-8431-4EBA-9710-DB054DA009F6}"
+	ProjectSection(SolutionItems) = preProject
+		ecosystem-libraries\Formatters-Serialization-Deserialization\Textual-HumanReadable\readme.md = ecosystem-libraries\Formatters-Serialization-Deserialization\Textual-HumanReadable\readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CSV.CharacterSeparatedValues", "CSV.CharacterSeparatedValues", "{1E2F7DFC-2B31-4B1A-B97F-B54878DB0F7B}"
+	ProjectSection(SolutionItems) = preProject
+		ecosystem-libraries\Formatters-Serialization-Deserialization\Textual-HumanReadable\CSV.CharacterSeparatedValues\readme.md = ecosystem-libraries\Formatters-Serialization-Deserialization\Textual-HumanReadable\CSV.CharacterSeparatedValues\readme.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MemoryStream", "MemoryStream", "{919C5127-EAD1-48BF-B5C7-DAC180461786}"
+	ProjectSection(SolutionItems) = preProject
+		ecosystem-libraries\InputOutput-IO\MemoryStream\readme.md = ecosystem-libraries\InputOutput-IO\MemoryStream\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.MemoryStream", "ecosystem-libraries\InputOutput-IO\MemoryStream\Holisticware.Library.Snippets.MemoryStream\Holisticware.Library.Snippets.MemoryStream.csproj", "{230EBB16-1655-4A1C-B57F-683B4F6146D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.MemoryStream", "ecosystem-libraries\InputOutput-IO\MemoryStream\AppConsole.Tests.Benchmarks.MemoryStream\AppConsole.Tests.Benchmarks.MemoryStream.csproj", "{F9A01B2C-A812-4F08-9C85-4B91FC3D35D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Null-Checking-Nullable", "Null-Checking-Nullable", "{8F4D9B7F-D78A-4B23-BE33-01603481FBEE}"
+	ProjectSection(SolutionItems) = preProject
+		language-features\Null-Checking-Nullable\readme.md = language-features\Null-Checking-Nullable\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.Nullable", "language-features\Null-Checking-Nullable\Holisticware.Library.Snippets.Nullable\Holisticware.Library.Snippets.Nullable.csproj", "{708D09D2-2ECE-41A4-A80D-FFEE8132AA03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.Nullable", "language-features\Null-Checking-Nullable\AppConsole.Tests.Benchmarks.Nullable\AppConsole.Tests.Benchmarks.Nullable.csproj", "{EB66058F-B23E-489B-9E5C-1D77A9C03C64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "JSON", "JSON", "{A9B58787-3DC5-4FAC-BFAB-F3B53FE88D09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XML", "XML", "{03E3E60E-B697-488B-A88D-411CE9BF89F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "YAML", "YAML", "{44A183CC-B968-484B-A1DD-523412EF5E66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BSON", "BSON", "{B950D933-4F11-499D-947B-69EBDDA66A91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Avro", "Avro", "{B6DD5155-D6D4-4B33-929F-5F3C18E516C3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bond", "Bond", "{78E22BCB-D96B-4664-9E0B-613A17A36792}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ProtocolBuffers.Protobuf", "ProtocolBuffers.Protobuf", "{E8012009-2ECC-4E32-A26D-37D60C23B0A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FlatBuffers", "FlatBuffers", "{153EC8AE-0A9C-4D15-A464-E9DEA1373D88}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MemoryPack", "MemoryPack", "{A4B69B7A-D8B5-4838-AE68-2769DEA2BF14}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MessagePack", "MessagePack", "{F343AC35-5A34-4971-AE0F-731F28D7E24E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PatternMatching", "PatternMatching", "{7BDA9042-4AEA-42F6-B1F7-61920D6570A1}"
+	ProjectSection(SolutionItems) = preProject
+		language-features\PatternMatching\readme.md = language-features\PatternMatching\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.PatternMatching", "language-features\PatternMatching\Holisticware.Library.Snippets.PatternMatching\Holisticware.Library.Snippets.PatternMatching.csproj", "{46105DE9-1FC9-40E3-B7EC-1B76D1BDB028}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.PatternMatching", "language-features\PatternMatching\AppConsole.Tests.Benchmarks.PatternMatching\AppConsole.Tests.Benchmarks.PatternMatching.csproj", "{1554D7E1-7EB0-4D4F-972E-CA7D54D8EA6B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Regex", "Regex", "{26B9BA24-BC72-4AB0-9BE4-E19BEC37CA45}"
+	ProjectSection(SolutionItems) = preProject
+		language-features\Regex\readme.md = language-features\Regex\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.Regex", "language-features\Regex\Holisticware.Library.Snippets.Regex\Holisticware.Library.Snippets.Regex.csproj", "{41423944-63F3-4D98-9C6C-10E8217F8C6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.Regex", "language-features\Regex\AppConsole.Tests.Benchmarks.Regex\AppConsole.Tests.Benchmarks.Regex.csproj", "{C4215AAD-20BF-40DC-8EE0-B17C4789063C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Collection-Initializers-Expressions", "Collection-Initializers-Expressions", "{DEF39611-7A9C-4527-85A6-B7E707ADB8B7}"
+	ProjectSection(SolutionItems) = preProject
+		language-features\Collection-Initializers-Expressions\readme.md = language-features\Collection-Initializers-Expressions\readme.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.CollectionInitializersExpressions", "language-features\Collection-Initializers-Expressions\Holisticware.Library.Snippets.CollectionInitializersExpressions\Holisticware.Library.Snippets.CollectionInitializersExpressions.csproj", "{2F6730AC-5578-4F47-B13A-970D755B09C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.CollectionInitializersExpressions", "language-features\Collection-Initializers-Expressions\AppConsole.Tests.Benchmarks.CollectionInitializersExpressions\AppConsole.Tests.Benchmarks.CollectionInitializersExpressions.csproj", "{DCB23E3B-3B2B-43C1-A4D1-B23A8D8F9E80}"
+EndProject
+Global
+	GlobalSection(NestedProjects) = preSolution
+		{54B42E27-AA2F-4D3B-8EEA-071C2F77EE4B} = {1121251D-7961-4A83-BB38-EDED90EA3E0F}
+		{32CD4D83-3D9E-4B8D-8C73-4C71C3977ADB} = {1121251D-7961-4A83-BB38-EDED90EA3E0F}
+		{C3CB8482-CAB7-41C4-B707-E094F64D8473} = {54B42E27-AA2F-4D3B-8EEA-071C2F77EE4B}
+		{2B524975-8431-4EBA-9710-DB054DA009F6} = {54B42E27-AA2F-4D3B-8EEA-071C2F77EE4B}
+		{1E2F7DFC-2B31-4B1A-B97F-B54878DB0F7B} = {2B524975-8431-4EBA-9710-DB054DA009F6}
+		{919C5127-EAD1-48BF-B5C7-DAC180461786} = {32CD4D83-3D9E-4B8D-8C73-4C71C3977ADB}
+		{230EBB16-1655-4A1C-B57F-683B4F6146D0} = {919C5127-EAD1-48BF-B5C7-DAC180461786}
+		{F9A01B2C-A812-4F08-9C85-4B91FC3D35D5} = {919C5127-EAD1-48BF-B5C7-DAC180461786}
+		{8F4D9B7F-D78A-4B23-BE33-01603481FBEE} = {BBBADD51-11E2-4832-AA76-BD743D1B2DAE}
+		{708D09D2-2ECE-41A4-A80D-FFEE8132AA03} = {8F4D9B7F-D78A-4B23-BE33-01603481FBEE}
+		{EB66058F-B23E-489B-9E5C-1D77A9C03C64} = {8F4D9B7F-D78A-4B23-BE33-01603481FBEE}
+		{A9B58787-3DC5-4FAC-BFAB-F3B53FE88D09} = {2B524975-8431-4EBA-9710-DB054DA009F6}
+		{03E3E60E-B697-488B-A88D-411CE9BF89F5} = {2B524975-8431-4EBA-9710-DB054DA009F6}
+		{44A183CC-B968-484B-A1DD-523412EF5E66} = {2B524975-8431-4EBA-9710-DB054DA009F6}
+		{B950D933-4F11-499D-947B-69EBDDA66A91} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{B6DD5155-D6D4-4B33-929F-5F3C18E516C3} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{78E22BCB-D96B-4664-9E0B-613A17A36792} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{E8012009-2ECC-4E32-A26D-37D60C23B0A3} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{153EC8AE-0A9C-4D15-A464-E9DEA1373D88} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{A4B69B7A-D8B5-4838-AE68-2769DEA2BF14} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{F343AC35-5A34-4971-AE0F-731F28D7E24E} = {C3CB8482-CAB7-41C4-B707-E094F64D8473}
+		{7BDA9042-4AEA-42F6-B1F7-61920D6570A1} = {BBBADD51-11E2-4832-AA76-BD743D1B2DAE}
+		{46105DE9-1FC9-40E3-B7EC-1B76D1BDB028} = {7BDA9042-4AEA-42F6-B1F7-61920D6570A1}
+		{1554D7E1-7EB0-4D4F-972E-CA7D54D8EA6B} = {7BDA9042-4AEA-42F6-B1F7-61920D6570A1}
+		{26B9BA24-BC72-4AB0-9BE4-E19BEC37CA45} = {BBBADD51-11E2-4832-AA76-BD743D1B2DAE}
+		{41423944-63F3-4D98-9C6C-10E8217F8C6D} = {26B9BA24-BC72-4AB0-9BE4-E19BEC37CA45}
+		{C4215AAD-20BF-40DC-8EE0-B17C4789063C} = {26B9BA24-BC72-4AB0-9BE4-E19BEC37CA45}
+		{DEF39611-7A9C-4527-85A6-B7E707ADB8B7} = {BBBADD51-11E2-4832-AA76-BD743D1B2DAE}
+		{2F6730AC-5578-4F47-B13A-970D755B09C0} = {DEF39611-7A9C-4527-85A6-B7E707ADB8B7}
+		{DCB23E3B-3B2B-43C1-A4D1-B23A8D8F9E80} = {DEF39611-7A9C-4527-85A6-B7E707ADB8B7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9A01B2C-A812-4F08-9C85-4B91FC3D35D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9A01B2C-A812-4F08-9C85-4B91FC3D35D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{230EBB16-1655-4A1C-B57F-683B4F6146D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{230EBB16-1655-4A1C-B57F-683B4F6146D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{708D09D2-2ECE-41A4-A80D-FFEE8132AA03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{708D09D2-2ECE-41A4-A80D-FFEE8132AA03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB66058F-B23E-489B-9E5C-1D77A9C03C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB66058F-B23E-489B-9E5C-1D77A9C03C64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46105DE9-1FC9-40E3-B7EC-1B76D1BDB028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46105DE9-1FC9-40E3-B7EC-1B76D1BDB028}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1554D7E1-7EB0-4D4F-972E-CA7D54D8EA6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1554D7E1-7EB0-4D4F-972E-CA7D54D8EA6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41423944-63F3-4D98-9C6C-10E8217F8C6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41423944-63F3-4D98-9C6C-10E8217F8C6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4215AAD-20BF-40DC-8EE0-B17C4789063C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4215AAD-20BF-40DC-8EE0-B17C4789063C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F6730AC-5578-4F47-B13A-970D755B09C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F6730AC-5578-4F47-B13A-970D755B09C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCB23E3B-3B2B-43C1-A4D1-B23A8D8F9E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCB23E3B-3B2B-43C1-A4D1-B23A8D8F9E80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+EndGlobal
