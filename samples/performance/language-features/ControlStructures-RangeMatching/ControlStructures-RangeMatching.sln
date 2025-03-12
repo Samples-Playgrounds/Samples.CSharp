@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.ControlStructures.RangeMatching", "Holisticware.Library.Snippets.ControlStructures.RangeMatching\Holisticware.Library.Snippets.ControlStructures.RangeMatching.csproj", "{B61DA657-7EFE-49F2-A384-2D91F3C9F570}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.ControlStructures.RangeMatching", "AppConsole.Tests.Benchmarks.ControlStructures.RangeMatching\AppConsole.Tests.Benchmarks.ControlStructures.RangeMatching.csproj", "{671820A1-6CA1-4102-AAAE-1086112DF8DF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B61DA657-7EFE-49F2-A384-2D91F3C9F570}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61DA657-7EFE-49F2-A384-2D91F3C9F570}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61DA657-7EFE-49F2-A384-2D91F3C9F570}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61DA657-7EFE-49F2-A384-2D91F3C9F570}.Release|Any CPU.Build.0 = Release|Any CPU
+		{671820A1-6CA1-4102-AAAE-1086112DF8DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{671820A1-6CA1-4102-AAAE-1086112DF8DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{671820A1-6CA1-4102-AAAE-1086112DF8DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{671820A1-6CA1-4102-AAAE-1086112DF8DF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
