@@ -471,4 +471,78 @@ public partial class
         return;
     }
     
+    // Create a jagged 2D array:
+    int[][] array_jagged_01;
+
+    List<List<int>> list_of_lists_01;
+    
+    [Benchmark]
+    public
+        void
+                                        array_jaggged_01_collection_initialization
+                                        (
+                                        )
+    {
+        array_jagged_01 = 
+                            new[]
+                            {
+                                 new [] { 1, 2, 3 }, 
+                                 new [] { 4, 5, 6 }, 
+                                 new [] { 7, 8, 9 }, 
+                            };
+
+        return;
+    }
+
+    [Benchmark]
+    public
+        void
+                                        array_jaggged_01_collection_expression
+                                        (
+                                        )
+    {
+        array_jagged_01 = 
+                            [
+                                [1, 2, 3], 
+                                [4, 5, 6],
+                                [7, 8, 9]
+                            ];
+
+        return;
+    }
+    
+    [Benchmark]
+    public
+        void
+                                        list_of_lists_01_collection_expression
+                                        (
+                                        )
+    {
+        list_of_lists_01 = 
+                            [
+                                [1, 2, 3], 
+                                [4, 5, 6],
+                                [7, 8, 9]
+                            ];
+
+        return;
+    }
+    
+    [Benchmark]
+    public
+        void
+                                        list_of_lists_01_collection_initializer
+                                        (
+                                        )
+    {
+        list_of_lists_01 = 
+                            new List<List<int>>
+                            {
+                                 new List<int> { 1, 2, 3 }, 
+                                 new List<int> { 4, 5, 6 }, 
+                                 new List<int> { 7, 8, 9 }, 
+                            };
+
+        return;
+    }
 }
