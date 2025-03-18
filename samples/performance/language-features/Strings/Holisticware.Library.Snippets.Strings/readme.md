@@ -1,11 +1,33 @@
 # Benchmrks for `String`
 
-
-# Strings
-
 readme.md
 
-## 20241222
+## Strings
+
+*   https://www.meziantou.net/some-performance-tricks-with-dotnet-strings.htm
+
+
+### Split
+
+*   https://www.infoworld.com/article/3626790/how-to-split-strings-efficiently-in-c-sharp.html
+
+*   https://www.meziantou.net/split-a-string-into-lines-without-allocation.htm
+  
+*   https://endjin.com/blog/2023/09/optimising-dotnet-code-4-avoiding-allocations-using-span-t
+
+*   https://www.meziantou.net/split-a-string-into-lines-without-allocation.htm
+
+*   https://stackoverflow.com/questions/77343199/string-split-for-span
+
+#### `StringTokenizer`
+
+*   https://learn.microsoft.com/en-us/dotnet/core/extensions/primitives#the-stringtokenizer-type
+*   https://learn.microsoft.com/en-us/dotnet/api/microsoft.extensions.primitives.stringtokenizer
+
+## Results
+
+
+### 20241222
 
 | Method                                       | Runtime  | Mean      | Error    | StdDev   | Gen0   | Allocated |
 |--------------------------------------------- |--------- |----------:|---------:|---------:|-------:|----------:|
