@@ -1,7 +1,17 @@
 # Range Checking
 
 *   https://stackoverflow.com/questions/20147879/switch-case-can-i-use-a-range-instead-of-a-one-number
-* 
+
+*   https://hackajob.com/talent/blog/better-c-switch-statements-for-a-range-of-values
+
+*   https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns
+
+*   https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements
+
+*   https://www.linkedin.com/pulse/handle-cases-range-c-javascript-ziv-ben-or/
+
+*   https://medium.com/@time4ish/csharp-switch-statement-vs-switch-expression-explained-b0046058eee6
+
 ## Results
 
 ### 20250312
