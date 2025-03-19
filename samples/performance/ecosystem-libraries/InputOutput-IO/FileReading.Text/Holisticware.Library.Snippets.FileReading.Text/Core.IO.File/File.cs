@@ -27,7 +27,7 @@ public partial class
                                             string file_path
                                         )
     {
-        return ReadAllTextDelegate(file_path);
+        return ReadAllTextImplementation(file_path);
     }
 
     private static readonly 
