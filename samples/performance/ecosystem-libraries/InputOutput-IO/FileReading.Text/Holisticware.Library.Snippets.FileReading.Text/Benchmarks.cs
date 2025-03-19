@@ -2,7 +2,7 @@
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Order;
 
-namespace Holisticware.Library.Snippets.ControlStructures.RangeMatching;
+namespace Holisticware.Library.Snippets.FileReading.Text;
 
 [MemoryDiagnoser]
 // [ThreadingDiagnoser]
