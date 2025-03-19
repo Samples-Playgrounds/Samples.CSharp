@@ -4,7 +4,7 @@ readme.md
 
 *   https://corpus.canterbury.ac.nz/descriptions/
 
-*   https://stackoverflow.com/questions/44492576/looking-for-large-text-files-for-testing-compression-in-all-sizes
+*   https://testfile.org/
 
 *   https://examplefile.com/code/xml
 
@@ -26,3 +26,6 @@ readme.md
 *   https://examplefile.com/image/jpg
 
 *   https://examplefile.com/image/bmp
+
+
+*   https://stackoverflow.com/questions/44492576/looking-for-large-text-files-for-testing-compression-in-all-sizes
