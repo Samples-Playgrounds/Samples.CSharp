@@ -1,9 +1,9 @@
 ﻿using BenchmarkDotNet.Reports;
 using BenchmarkDotNet.Running;
 
-using Holisticware.Library.Snippets.ControlStructures.RangeMatching;
+using Holisticware.Library.Snippets.FileReading.Text;
 
-Summary summary = BenchmarkRunner.Run<Benchmarks_FileReading_Text>();
+// Summary summary = BenchmarkRunner.Run<Benchmarks_FileReading_Text>();
 
 string content = string.Empty;
 
