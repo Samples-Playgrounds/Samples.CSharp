@@ -15,4 +15,74 @@ namespace Core.IO;
 public partial class
                                         File
 {
+        public static
+        string[]
+                                        ReadAllLinesWithFileReadAllLines
+                                        (
+                                            string file_path
+                                        )
+    {
+        return System.IO.File.ReadAllLines(file_path);
+    }
+        
+        public static
+        string[]
+                                        ReadAllLinesWithFileOpenReadAndStreamReaderReadLine
+                                        (
+                                            string file_path
+                                        )
+    {
+        using System.IO.FileStream fs = System.IO.File.OpenRead(file_path);
+        using System.IO.StreamReader reader = new System.IO.StreamReader(fs);
+        
+        List<string> lines = new();
+        while (reader.ReadLine() is { } line)
+        {
+            lines.Add(line);
+        }
+
+        return lines.ToArray();
+    }
+        
+        public static
+        string[]
+                                        ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine
+                                        (
+                                            string file_path
+                                        )
+    {
+        using System.IO.FileStream fs = System.IO.File.OpenRead(file_path);
+        using System.IO.MemoryStream ms = new System.IO.MemoryStream();
+        fs.CopyTo(ms);
+        using System.IO.StreamReader reader = new System.IO.StreamReader(ms);
+        
+        List<string> lines = new();
+        while (reader.ReadLine() is { } line)
+        {
+            lines.Add(line);
+        }
+
+        return lines.ToArray();
+    }
+        
+    public static
+        string[]
+                                        ReadAllLinesAndSplitWithFileOpenReadRecyclableMemoryStream
+                                        (
+                                            string file_path
+                                        )
+    {
+        using Microsoft.IO.RecyclableMemoryStream ms = rmsm.GetStream();
+        using System.IO.FileStream fs = System.IO.File.OpenRead(file_path);
+        fs.CopyTo(ms);
+        using System.IO.StreamReader reader = new System.IO.StreamReader(ms);
+        
+        List<string> lines = new();
+        while (reader.ReadLine() is { } line)
+        {
+            lines.Add(line);
+        }
+
+        return lines.ToArray();
+    }
 }

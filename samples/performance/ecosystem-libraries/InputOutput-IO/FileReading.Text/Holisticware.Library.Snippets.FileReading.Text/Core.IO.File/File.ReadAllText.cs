@@ -12,37 +12,6 @@ namespace Core.IO;
 public partial class
                                         File
 {
-    static
-                                        File()
-    {
-        ReadAllTextImplementation 
-            = ReadAllTextWithFileUsingStreamRecyclableAndMemoryStreamAndStreamReaderAndReadBlockIntoZString;
-        
-        return;
-    }
-
-    public static
-        Func<string, string>
-                                        ReadAllTextImplementation
-    {
-        get;
-        set;
-    } 
-    
-    public static
-        string
-                                        ReadAllText
-                                        (
-                                            string file_path
-                                        )
-    {
-        return ReadAllTextImplementation(file_path);
-    }
-
-    private static readonly 
-        Microsoft.IO.RecyclableMemoryStreamManager 
-                                        rmsm = new Microsoft.IO.RecyclableMemoryStreamManager();
-
     public static
         string
                                         ReadAllTextWithFileUsingStreamRecyclableAndMemoryStreamAndStreamReaderAndReadBlockIntoZString
