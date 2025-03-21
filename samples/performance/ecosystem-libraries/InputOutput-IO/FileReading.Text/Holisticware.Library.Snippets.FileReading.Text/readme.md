@@ -5,6 +5,8 @@
 
 *   https://code-maze.com/csharp-fastest-way-to-read-text-file/
 
+    *   https://github.com/CodeMazeBlog/CodeMazeGuides/tree/main/files-csharp/FastestWayToReadATextFileInCsharp
+
 *   https://cc.davelozinski.com/c-sharp/fastest-way-to-read-text-files
 
 *   https://cc.davelozinski.com/c-sharp/the-fastest-way-to-read-and-process-text-files
