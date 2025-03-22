@@ -1,7 +1,7 @@
 ﻿using Microsoft.IO;
 using BenchmarkDotNet.Attributes;
 
-namespace Holisticware.Library.Snippets.MemoryStream;
+namespace Holisticware.Library.Snippets.Strings;
 
 [MemoryDiagnoser]
 [Config(typeof(Config))]
@@ -10,7 +10,7 @@ namespace Holisticware.Library.Snippets.MemoryStream;
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 [HideColumns(BenchmarkDotNet.Columns.Column.Job, BenchmarkDotNet.Columns.Column.RatioSD, BenchmarkDotNet.Columns.Column.AllocRatio)]
 public partial class
-                                        Benchmarks_Strings
+                                        Benchmarks_Strings_Concatenation
 {
     private class 
                                         Config 
@@ -272,7 +272,9 @@ public partial class
             Concat(new string[] { title, " ", firstName, " ", middleName, " ", lastName });
     }
 
-    #if NET8_0_OR_GREATER
+    #if NET8_0_OR_GREATER || NETSTANDARD2_1
+    // https://www.reddit.com/r/dotnet/comments/wgwct9/what_is_the_use_case_for_netstandard21/
+    // https://apisof.net/catalog/0ea2d97d848a21bf37885c4d35fcad2a
     [Benchmark]
     public string StringCreate_Simple()
     {
