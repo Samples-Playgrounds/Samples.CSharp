@@ -26,6 +26,98 @@
 
 ## Results
 
+```
+BenchmarkDotNet v0.14.0, macOS Sequoia 15.3.2 (24D81) [Darwin 24.3.0]
+Apple M2 Max, 1 CPU, 12 logical and 12 physical cores
+.NET SDK 10.0.100-preview.2.25164.34
+  [Host]     : .NET 9.0.3 (9.0.325.11113), Arm64 RyuJIT AdvSIMD
+  DefaultJob : .NET 9.0.3 (9.0.325.11113), Arm64 RyuJIT AdvSIMD
+```
+
+
+| Method                                                                                | file_path_test_data | Mean          | Gen0       | Gen1      | Gen2      | Allocated    |
+|-------------------------------------------------------------------------------------- |-------------------- |--------------:|-----------:|----------:|----------:|-------------:|
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/192.txt          |   1,338.61 us |    13.6719 |         - |         - |    111.82 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/192.txt          |  12,129.89 us |   171.8750 |  171.8750 |  171.8750 |  38680.19 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/192.txt          |   1,337.15 us |    13.6719 |         - |         - |    111.82 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/192.txt          |  12,097.74 us |   171.8750 |  171.8750 |  171.8750 |  38680.19 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/192.txt          |   1,347.73 us |    13.6719 |         - |         - |    111.82 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/192.txt          |   7,189.10 us |  2492.1875 | 2492.1875 | 2492.1875 |  65414.55 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/258.txt          |   3,304.82 us |    50.7813 |         - |         - |    428.87 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/258.txt          | 129,091.35 us | 15500.0000 | 8250.0000 | 2250.0000 | 163046.95 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/258.txt          |   3,308.88 us |    50.7813 |         - |         - |    428.87 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/258.txt          | 128,979.90 us | 15500.0000 | 8250.0000 | 2250.0000 | 163046.95 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/258.txt          |   3,322.54 us |    50.7813 |         - |         - |    428.87 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/258.txt          |  14,270.74 us |   984.3750 |  984.3750 |  984.3750 | 130949.49 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/509.10mb.csv     |     570.23 us |     4.8828 |         - |         - |     43.74 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/509.10mb.csv     |  17,037.17 us |  3718.7500 | 2218.7500 | 1000.0000 |  30659.41 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/509.10mb.csv     |     572.15 us |     4.8828 |         - |         - |     43.74 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/509.10mb.csv     |  17,066.61 us |  3718.7500 | 2218.7500 | 1000.0000 |  30659.17 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/509.10mb.csv     |     584.31 us |     4.8828 |         - |         - |     43.74 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/509.10mb.csv     |   3,629.74 us |  1996.0938 | 1996.0938 | 1996.0938 |  32646.26 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/519.1mb.csv      |      82.87 us |     1.5869 |         - |         - |     13.64 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/519.1mb.csv      |   2,004.67 us |   496.0938 |  328.1250 |  164.0625 |   3626.41 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/519.1mb.csv      |      83.67 us |     1.5869 |         - |         - |     13.64 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/519.1mb.csv      |   2,004.99 us |   496.0938 |  332.0313 |  164.0625 |   3626.46 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/519.1mb.csv      |      83.13 us |     1.5869 |         - |         - |     13.64 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/519.1mb.csv      |     305.99 us |   523.9258 |  522.4609 |  522.4609 |   3973.38 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/530.2mb.csv      |     129.94 us |     1.7090 |         - |         - |     14.99 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/530.2mb.csv      |   2,808.70 us |   746.0938 |  371.0938 |  371.0938 |   6745.73 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/530.2mb.csv      |     131.89 us |     1.7090 |         - |         - |     14.99 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/530.2mb.csv      |   2,820.78 us |   746.0938 |  371.0938 |  371.0938 |   6745.73 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/530.2mb.csv      |     130.59 us |     1.7090 |         - |         - |     14.99 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/530.2mb.csv      |     606.98 us |  1007.8125 | 1006.8359 | 1006.8359 |   8069.46 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/545.5mb.csv      |     273.92 us |     2.4414 |         - |         - |     22.02 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/545.5mb.csv      |   9,839.98 us |  2125.0000 | 1375.0000 |  687.5000 |  15586.29 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/545.5mb.csv      |     276.00 us |     2.4414 |         - |         - |     22.02 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/545.5mb.csv      |   9,886.63 us |  2125.0000 | 1375.0000 |  687.5000 |  15586.42 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/545.5mb.csv      |     276.52 us |     2.4414 |         - |         - |     22.02 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/545.5mb.csv      |   1,675.55 us |  1000.0000 |  998.0469 |  998.0469 |  16261.48 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/558.50mb.csv     |   4,295.60 us |    78.1250 |         - |         - |    664.32 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/558.50mb.csv     |  98,312.11 us | 16833.3333 | 9333.3333 | 2333.3333 |  146841.1 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/558.50mb.csv     |   4,307.18 us |    78.1250 |         - |         - |    664.32 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/558.50mb.csv     |  95,113.31 us | 16800.0000 | 9200.0000 | 2200.0000 | 146840.35 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/558.50mb.csv     |   4,298.57 us |    78.1250 |         - |         - |    664.32 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/558.50mb.csv     |  15,937.04 us |   968.7500 |  968.7500 |  968.7500 | 130949.51 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/s1/kb.1.txt      |      25.04 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/s1/kb.1.txt      |      24.93 us |     1.3428 |    0.0305 |         - |      11.1 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/s1/kb.1.txt      |      24.97 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/s1/kb.1.txt      |      24.83 us |     1.3428 |    0.0305 |         - |      11.1 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/s1/kb.1.txt      |      24.96 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/s1/kb.1.txt      |      24.20 us |     0.6714 |         - |         - |      5.58 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/s1/kb.10.txt     |      25.72 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/s1/kb.10.txt     |      29.92 us |     4.0283 |    0.3662 |         - |     33.32 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/s1/kb.10.txt     |      25.59 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/s1/kb.10.txt     |      29.96 us |     4.0283 |    0.2441 |         - |     33.32 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/s1/kb.10.txt     |      25.56 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/s1/kb.10.txt     |      25.10 us |     1.7395 |    0.0305 |         - |     14.46 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/s1/kb.2.txt      |      25.07 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/s1/kb.2.txt      |      25.65 us |     1.6479 |    0.0610 |         - |     13.64 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/s1/kb.2.txt      |      25.05 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/s1/kb.2.txt      |      25.55 us |     1.6479 |    0.0305 |         - |     13.64 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/s1/kb.2.txt      |      25.07 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/s1/kb.2.txt      |      24.36 us |     0.7935 |         - |         - |      6.56 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/s1/kb.20.txt     |      26.27 us |     1.5259 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/s1/kb.20.txt     |      34.93 us |     7.0801 |    1.0376 |         - |        58 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/s1/kb.20.txt     |      26.22 us |     1.5259 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/s1/kb.20.txt     |      34.82 us |     7.0801 |    0.7324 |         - |        58 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/s1/kb.20.txt     |      26.21 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/s1/kb.20.txt     |      26.31 us |     2.9602 |    0.1526 |         - |     24.32 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/s1/kb.5.txt      |      25.61 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/s1/kb.5.txt      |      27.23 us |     2.5635 |    0.1526 |         - |     20.96 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/s1/kb.5.txt      |      25.53 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/s1/kb.5.txt      |      27.26 us |     2.5635 |    0.1221 |         - |     20.96 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/s1/kb.5.txt      |      25.59 us |     1.5564 |         - |         - |     12.77 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/s1/kb.5.txt      |      24.93 us |     1.1597 |         - |         - |      9.52 KB |
+| ReadAllLinesWithFileReadAllLines_InDirect                                             | td/s1/kb.50.txt     |      27.98 us |     1.5259 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileReadAllLines_Direct                                               | td/s1/kb.50.txt     |      50.39 us |    15.8691 |    4.3945 |         - |       130 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect                          | td/s1/kb.50.txt     |      28.07 us |     1.5259 |         - |         - |     12.77 KB |
+| ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_Direct                            | td/s1/kb.50.txt     |      49.69 us |    15.8691 |    3.2349 |         - |       130 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_InDirect | td/s1/kb.50.txt     |      28.03 us |     1.5259 |         - |         - |     12.77 KB |
+| ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine_Direct   | td/s1/kb.50.txt     |      27.83 us |     6.5308 |    0.4272 |         - |     53.92 KB |
+
+
+
 ### 20250318
 
 

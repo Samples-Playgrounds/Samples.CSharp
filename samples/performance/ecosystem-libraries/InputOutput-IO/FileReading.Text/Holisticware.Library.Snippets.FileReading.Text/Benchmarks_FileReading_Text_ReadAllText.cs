@@ -31,6 +31,12 @@ public partial class
                                         Benchmarks_FileReading_Text_ReadAllText
 {
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -59,6 +65,12 @@ public partial class
     }
 
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -86,6 +98,12 @@ public partial class
     }
 
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -104,6 +122,12 @@ public partial class
     }
 
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -130,6 +154,12 @@ public partial class
     }
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -157,6 +187,12 @@ public partial class
     }
 
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -177,6 +213,12 @@ public partial class
     }
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -205,6 +247,12 @@ public partial class
     }    
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -233,6 +281,12 @@ public partial class
     }    
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -261,6 +315,12 @@ public partial class
     }    
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -289,6 +349,12 @@ public partial class
     }    
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -317,6 +383,12 @@ public partial class
     }    
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]
@@ -346,6 +418,12 @@ public partial class
     
     
     [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
     [Arguments("td/192.txt")]
     [Arguments("td/258.txt")]
     [Arguments("td/519.1mb.csv")]

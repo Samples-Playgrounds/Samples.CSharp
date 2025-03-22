@@ -8,7 +8,6 @@ Summary summary_read_alllines = BenchmarkRunner.Run<Benchmarks_FileReading_Text_
 
 /*
 string content = string.Empty;
-
 Core.IO.File.ReadAllTextImplementation
         = Core.IO.File.ReadAllTextWithFileUsingStreamRecyclableAndMemoryStreamAndStreamReaderAndReadBlockIntoZString;
 
