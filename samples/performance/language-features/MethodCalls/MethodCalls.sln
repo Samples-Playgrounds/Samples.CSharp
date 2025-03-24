@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.MethodCalls", "Holisticware.Library.Snippets.MethodCalls\Holisticware.Library.Snippets.MethodCalls.csproj", "{D24F6AEB-EA4C-4386-887B-9A2F66E91288}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.MethodCalls", "AppConsole.Tests.Benchmarks.MethodCalls\AppConsole.Tests.Benchmarks.MethodCalls.csproj", "{D616C7D8-6C3C-4BBB-A2E9-5658C127151C}"
+EndProject
+Global
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D24F6AEB-EA4C-4386-887B-9A2F66E91288}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D24F6AEB-EA4C-4386-887B-9A2F66E91288}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D616C7D8-6C3C-4BBB-A2E9-5658C127151C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D616C7D8-6C3C-4BBB-A2E9-5658C127151C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+EndGlobal
