@@ -27,66 +27,8 @@ public partial class
         }
     }
     
-    private ContainerForMethods c = new ContainerForMethods();
-
+    private 
+        ContainerForMethods 
+                                        c = new();
     
-    [Benchmark]
-    /*
-    [Arguments("adsadasafsaa;dsadadsa,dasdassdasdasd;sdsdsdsl;dasdasddas,20202,dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ';' })]
-    */
-    public
-        int
-                                        StaticMethodDouble
-                                        (
-                                        )
-    {
-        return ContainerForMethods.StaticMethodDouble(2);
-    }
-
-    [Benchmark]
-    /*
-    [Arguments("adsadasafsaa;dsadadsa,dasdassdasdasd;sdsdsdsl;dasdasddas,20202,dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ';' })]
-    */
-    public async
-        Task<int>
-                                        StaticMethodDoubleAsync
-                                        (
-                                        )
-    {
-        return await ContainerForMethods.StaticMethodDoubleAsync(2);
-    }
-    
-    [Benchmark]
-    /*
-    [Arguments("adsadasafsaa;dsadadsa,dasdassdasdasd;sdsdsdsl;dasdasddas,20202,dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ';' })]
-    */
-    public
-        int
-                                        InstanceMethodDouble
-                                        (
-                                        )
-    {
-        return c.InstanceMethodDouble(2);
-    }
-    
-    [Benchmark]
-    /*
-    [Arguments("adsadasafsaa;dsadadsa,dasdassdasdasd;sdsdsdsl;dasdasddas,20202,dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ',', ';' })]
-    [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] { ';' })]
-    */
-    public
-        Task<int>
-                                        InstanceMethodDoubleAsync
-                                        (
-                                        )
-    {
-        return c.InstanceMethodDoubleAsync(2);
-    }
 }
