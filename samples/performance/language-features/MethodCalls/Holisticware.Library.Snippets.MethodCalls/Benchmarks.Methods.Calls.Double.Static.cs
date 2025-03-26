@@ -36,6 +36,20 @@ public partial class
         return await ContainerForMethods.StaticMethodDoubleAsync(arg);
     }
     
+    //------------------------------------------------------------------------------------------------------------------
+    [GlobalSetup(Target = nameof(StaticMethodDoubleViaFuncDelegate_InDirect))]
+    public
+        void
+                                        Setup_StaticMethodDoubleViaFuncDelegate_InDirect
+                                        (
+                                        )
+    {
+        ContainerForMethods.StaticMethodDoubleImplementation 
+                                        = ContainerForMethods.StaticMethodDouble;
+        
+        return;
+    }
+    
     [Benchmark]
     [Arguments(2)]
     [Arguments(-2)]
@@ -43,12 +57,28 @@ public partial class
     [Arguments(-434234723)]
     public
         int
-                                        StaticMethodDoubleViaFuncDelegate
+                                        StaticMethodDoubleViaFuncDelegate_InDirect
                                         (
                                             int arg
                                         )
     {
         return ContainerForMethods.StaticMethodDoubleImplementation(arg);
     }
+    
+    [Benchmark]
+    [Arguments(2)]
+    [Arguments(-2)]
+    [Arguments(434234723)]
+    [Arguments(-434234723)]
+    public
+        int
+                                        StaticMethodDoubleViaFuncDelegate_Direct
+                                        (
+                                            int arg
+                                        )
+    {
+        return ContainerForMethods.StaticMethodDouble(arg);
+    }
+    //------------------------------------------------------------------------------------------------------------------
 
 }

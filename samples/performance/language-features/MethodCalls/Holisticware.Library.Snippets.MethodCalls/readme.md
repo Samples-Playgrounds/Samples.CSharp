@@ -2,13 +2,35 @@
 
 readme.md
 
-*   https://dev.to/aloneguid/c-net-method-call-performance-facts-1koi
+*   https://learn.microsoft.com/en-us/previous-versions/dotnet/articles/ms973852(v=msdn.10)
+  
+* https://dev.to/aloneguid/c-net-method-call-performance-facts-1koi
 
     *   https://www.aloneguid.uk/posts/2021/05/csharp-method-call-performance/
 
 *   https://stackoverflow.com/questions/12279438/performance-of-static-methods-vs-instance-methods
 
 *   https://stackoverflow.com/questions/2142062/are-static-methods-more-efficient
+
+*   https://stackoverflow.com/questions/202631/performance-of-using-static-methods-vs-instantiating-the-class-containing-the-me
+
+*   https://stackoverflow.com/questions/60020473/using-static-classes-or-not-in-an-object-that-has-many-instances-for-memory-perf
+
+https://stackoverflow.com/questions/3016717/static-vs-instance-method-performance-c-sharp
+
+https://www.reddit.com/r/csharp/comments/1b4ve75/i_need_clarification_on_using_static_vs_instance/
+
+https://www.tabsoverspaces.com/233660-are-static-methods-faster-in-execution-compared-to-instance-methods-dotnet
+
+https://www.tabsoverspaces.com/233661-where-are-the-differences-in-execution-speed-of-various-method-types-come-from-dotnet
+
+https://theburningmonk.com/2010/07/static-vs-non-static-method-in-csharp/
+
+https://code-maze.com/csharp-static-vs-non-static-methods/
+
+https://learn.microsoft.com/en-us/dotnet/fundamentals/code-analysis/quality-rules/performance-warnings
+
+
 
 
 ## Results
