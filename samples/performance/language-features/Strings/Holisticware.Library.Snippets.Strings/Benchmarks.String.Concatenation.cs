@@ -1,5 +1,4 @@
-﻿using Microsoft.IO;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 
 namespace Holisticware.Library.Snippets.Strings;
 
@@ -215,7 +214,11 @@ public partial class
     }
 
     [Benchmark]
-    public string StringPlus()
+    public
+        string
+                                        StringAddition
+                                        (
+                                        )
     {
         return 
             title 
@@ -294,7 +297,11 @@ public partial class
     }
     
     [Benchmark]
-    public string StringCreate_Complex()
+    public 
+        string
+                                        StringCreate_Complex
+                                        (
+                                        )
     {
         return 
             String.Create
