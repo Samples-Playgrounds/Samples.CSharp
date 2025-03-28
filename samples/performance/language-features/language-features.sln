@@ -9,6 +9,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PatternMatching", "PatternM
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Collection-Initializers-Expressions", "Collection-Initializers-Expressions", "{AF28C8FE-29D1-4330-8D9B-F16ABC000A13}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{38AF566B-4C37-411F-9C7F-4775DAA677D8}"
+	ProjectSection(SolutionItems) = preProject
+		Strings/Strings.sln = Strings/Strings.sln
+		Strings/readme.md = Strings/readme.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
