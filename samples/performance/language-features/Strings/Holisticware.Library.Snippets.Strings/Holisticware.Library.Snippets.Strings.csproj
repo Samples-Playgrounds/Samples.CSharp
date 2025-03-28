@@ -13,15 +13,5 @@
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="ZString" Version="2.6.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="files\17818489.zip" />
-    <None Remove="files\email50.csv" />
-    <None Remove="files\Izvjesce-o-provedbi-ZPPI-za-2023.doc" />
-    <None Remove="files\plavi-tjedan.jpg" />
-    <None Remove="files\Sazetak-Izvjesca-o-provedbi-ZPPI-za-2023.doc" />
-    <None Remove="files\WhatsApp Image 2024-11-06 at 11.45.19.jpeg" />
-    <None Remove="files\WhatsApp Image 2024-11-06 at 11.57.27.jpeg" />
-  </ItemGroup>
-
+  
 </Project>
