@@ -50,7 +50,8 @@ static
                                         )
 {
     string source =
-        "/Volumes/FAT_VERB/learning/topics/security/threat-modelling/effectivethreatinvestigationforsocanalysts.pdf"
+        // "/Volumes/FAT_VERB/learning/topics/security/threat-modelling/effectivethreatinvestigationforsocanalysts.pdf"
+        "/Users/moljac/Downloads/a.pdf"
         // "https://arxiv.org/pdf/2408.09869"  
         //"/Volumes/FAT_VERB/learning/topics/security/threat-modelling/threatmodeling.pdf"
         ;
