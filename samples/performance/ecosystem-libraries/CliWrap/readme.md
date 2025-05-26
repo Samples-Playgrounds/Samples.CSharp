@@ -24,6 +24,31 @@ Apple M2 Max, 1 CPU, 12 logical and 12 physical cores
 DefaultJob : .NET 9.0.4 (9.0.425.16305), Arm64 RyuJIT AdvSIMD
 
 
+| Method                                                                    | Mean          | Median        | Gen0   | Allocated |
+|-------------------------------------------------------------------------- |--------------:|--------------:|-------:|----------:|
+| Test_14_CliWrap_StandardOutput_AsString_Via_Delegate_StrngBuilder_BuiltIn |      15.33 us |      15.29 us | 0.0916 |     816 B |
+| Test_13_CliWrap_StandardOutput_AsString_Via_Delegate_ZString              |      15.35 us |      15.31 us | 0.1221 |    1056 B |
+| Test_25_CliWrap_StandardOutput_AsStringArray_Via_Delegate                 |      15.39 us |      15.30 us | 0.1221 |    1056 B |
+| Test_12_CliWrap_StandardOutput_AsString_Via_Delegate_StringBuider         |      15.40 us |      15.42 us | 0.1221 |    1056 B |
+| Test_01_System_Diagnostic_Process_StandardOutput                          |  24,987.70 us |  24,343.43 us |      - |   58646 B |
+| Test_21_CliWrap_StandardOutput_AsStringArray_From_Result                  | 114,073.71 us | 113,676.14 us |      - |   95638 B |
+| Test_22_CliWrap_StandardOutput_AsStringArray_Via_Piped_Delegate           | 114,910.29 us | 114,927.24 us |      - |  105744 B |
+| Test_24_CliWrap_StandardOutput_AsStringArray_Via_ListenAsync              | 117,194.12 us | 117,781.29 us |      - |   98520 B |
+| Test_11_CliWrap_StandardOutput_AsString_From_Result                       | 120,209.77 us | 118,196.33 us |      - |   95628 B |
+| Test_23_CliWrap_StandardOutput_AsStringArray_Via_Observable               | 245,998.98 us | 244,852.78 us |      - |  191917 B |
+
+
+### 20250525
+
+// * Summary *
+
+BenchmarkDotNet v0.14.0, macOS Sequoia 15.5 (24F74) [Darwin 24.5.0]
+Apple M2 Max, 1 CPU, 12 logical and 12 physical cores
+.NET SDK 10.0.100-preview.4.25258.110
+[Host]     : .NET 9.0.4 (9.0.425.16305), Arm64 RyuJIT AdvSIMD
+DefaultJob : .NET 9.0.4 (9.0.425.16305), Arm64 RyuJIT AdvSIMD
+
+
 | Method                                                                    | Mean          | Gen0   | Allocated |
 |-------------------------------------------------------------------------- |--------------:|-------:|----------:|
 | Test_23_CliWrap_StandardOutput_AsString_Via_Delegate_ZString              |      15.29 us | 0.0916 |     992 B |
