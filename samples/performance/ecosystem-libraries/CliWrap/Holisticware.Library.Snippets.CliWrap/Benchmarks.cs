@@ -38,16 +38,23 @@ using global::CliWrap.EventStream;
 public partial class
                                        Benchmarks_Console_CliWrap_StdOut
 {
+    System.Text.StringBuilder                              sb = new();
+    private Cysharp.Text.Utf16ValueStringBuilder           sbz = Cysharp.Text.ZString.CreateStringBuilder();
+    System.Diagnostics.Process?                            process = default;
+    global::CliWrap.Command                                cmd = default;
+    private global::CliWrap.Buffered.BufferedCommandResult result = default;
+    string                                                 stdout_1 = string.Empty;
+    List<string>                                           stdout_2 = new();
+    string[]                                               stdout_3 = default;
+    
+    
     [Benchmark]
     public async
         Task<string[]>
-                                        f_00
+                                        Test_01_System_Diagnostic_Process_StandardOutput
                                         (
                                         )
     {
-        List<string> stdout = new();
-        System.Diagnostics.Process?     process = default;
-
         process = new ()
                     {
                         StartInfo = new System.Diagnostics.ProcessStartInfo()
@@ -62,67 +69,138 @@ public partial class
                                                                     (
                                                                         (sender, args) =>
                                                                         {
-                                                                            stdout.Add(args.Data);
+                                                                            stdout_2.Add(args.Data);
                                                                         }
                                                                     );
-
         process.Start();
 
-        return stdout.ToArray();
+        return stdout_2.ToArray();
+    }
+
+    [Benchmark]
+    public async
+        Task<string>
+                                        Test_11_CliWrap_StandardOutput_AsString_From_Result
+                                        (
+                                        )
+    {
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                ;
+        global::CliWrap.Buffered.BufferedCommandResult result = await cmd.ExecuteBufferedAsync();
+
+        return result.StandardOutput;
+    }
+    
+    [Benchmark]
+    public async
+        Task<string>
+                                        Test_12_CliWrap_StandardOutput_AsString_Via_Delegate_StringBuider
+                                        (
+                                        )
+    {
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                .WithStandardOutputPipe
+                                    (
+                                        PipeTarget.ToDelegate
+                                                    (
+                                                        (s => sb.Append(s))
+                                                    )
+                                    );
+
+        return sb.ToString();
+    }
+    
+    [Benchmark]
+    public async
+        Task<string>
+                                        Test_13_CliWrap_StandardOutput_AsString_Via_Delegate_ZString
+                                        (
+                                        )
+    {
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                .WithStandardOutputPipe
+                                    (
+                                        PipeTarget.ToDelegate
+                                                    (
+                                                        (s => sbz.Append(s))
+                                                    )
+                                    );
+        return sb.ToString();
+    }
+    
+    [Benchmark]
+    public async
+        Task<string>
+                                        Test_14_CliWrap_StandardOutput_AsString_Via_Delegate_StrngBuilder_BuiltIn
+                                        (
+                                        )
+    {
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                .WithStandardOutputPipe(PipeTarget.ToStringBuilder(sb))
+                                ;
+
+        return sb.ToString();
     }
     
     [Benchmark]
     public async
         Task<string[]>
-                                        f_01
+                                        Test_21_CliWrap_StandardOutput_AsStringArray_From_Result
                                         (
                                         )
     {
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        ;
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                ;
         global::CliWrap.Buffered.BufferedCommandResult result = await cmd.ExecuteBufferedAsync();
-        string[] stdout = result.StandardOutput.Split
-                                                    (
-                                                        new string[] { "\r\n", "\n", "\r" },
-                                                        StringSplitOptions.None
-                                                    );
+        stdout_3 = result.StandardOutput.Split
+                                            (
+                                                new string[] { "\r\n", "\n", "\r" },
+                                                StringSplitOptions.None
+                                            );
 
-        return stdout.ToArray();
+        return stdout_3.ToArray();
     }
 
     [Benchmark]
     public async
         Task<string[]>
-                                        f_02
+                                        Test_22_CliWrap_StandardOutput_AsStringArray_Via_Piped_Delegate
                                         (
                                         )
     {
-        List<string> stdout = new();
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        |
-                                                        stdout.Add
-                                                        ;
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                |
+                                stdout_2.Add
+                                ;
         await cmd.ExecuteBufferedAsync();
         
-        return stdout.ToArray();
+        return stdout_2.ToArray();
     }
 
     [Benchmark]
     public async
         Task<string[]>
-                                        f_03
+                                        Test_23_CliWrap_StandardOutput_AsStringArray_Via_Observable
                                         (
                                         )
     {
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        ;
-        var stdout = await cmd
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                ;
+        stdout_3 = await cmd
                             .Observe()
                             .OfType<global::CliWrap.EventStream.StandardOutputCommandEvent>()
                             .Select(e => e.Text)
@@ -130,117 +208,49 @@ public partial class
                             ;
         await cmd.ExecuteBufferedAsync();
         
-        return stdout.ToArray();
+        return stdout_3.ToArray();
     }
     
     [Benchmark]
     public async
         Task<string[]>
-                                        f_04
+                                        Test_24_CliWrap_StandardOutput_AsStringArray_Via_ListenAsync
                                         (
                                         )
     {
-        List<string> stdout = new();
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        ;
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                ;
         await foreach (global::CliWrap.EventStream.CommandEvent cmd_event in cmd.ListenAsync())
         {
             if (cmd_event is StandardOutputCommandEvent soec)
             {
-                stdout.Add(soec.Text);
+                stdout_2.Add(soec.Text);
             }
         }
 
-        return stdout.ToArray();
+        return stdout_2.ToArray();
     }
     
     [Benchmark]
     public async
         Task<string[]>
-                                        f_05
+                                        Test_25_CliWrap_StandardOutput_AsStringArray_Via_Delegate
                                         (
                                         )
     {
-        List<string> stdout = new();
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        .WithStandardOutputPipe
-                                                            (
-                                                                PipeTarget.ToDelegate
-                                                                            (
-                                                                                (s => stdout.Add(s))
-                                                                            )
-                                                            );
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                .WithStandardOutputPipe
+                                    (
+                                        PipeTarget.ToDelegate
+                                                    (
+                                                        (s => stdout_2.Add(s))
+                                                    )
+                                    );
 
-        return stdout.ToArray();
+        return stdout_2.ToArray();
     }
-    
-    [Benchmark]
-    public async
-        Task<string>
-                                        f_11
-                                        (
-                                        )
-    {
-        System.Text.StringBuilder sb = new();
-        List<string> stdout = new();
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        .WithStandardOutputPipe
-                                                            (
-                                                                PipeTarget.ToDelegate
-                                                                            (
-                                                                                (s => sb.Append(s))
-                                                                            )
-                                                            );
-
-        return sb.ToString();
-    }
-    
-    [Benchmark]
-    public async
-        Task<string>
-                                        f_12
-                                        (
-                                        )
-    {
-        using(Cysharp.Text.Utf16ValueStringBuilder sb = Cysharp.Text.ZString.CreateStringBuilder())
-        {
-            List<string> stdout = new();
-            global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                            .Wrap("javac")
-                                                            .WithArguments("--version")
-                                                            .WithStandardOutputPipe
-                                                                (
-                                                                    PipeTarget.ToDelegate
-                                                                                (
-                                                                                    (s => sb.Append(s))
-                                                                                )
-                                                                );
-            return sb.ToString();
-        }
-    }
-    
-    [Benchmark]
-    public async
-        Task<string>
-                                        f_13
-                                        (
-                                        )
-    {
-        System.Text.StringBuilder sb = new();
-        List<string> stdout = new();
-        global::CliWrap.Command cmd = global::CliWrap.Cli
-                                                        .Wrap("javac")
-                                                        .WithArguments("--version")
-                                                        .WithStandardOutputPipe(PipeTarget.ToStringBuilder(sb))
-                                                        ;
-
-        return sb.ToString();
-    }
-    
 }
