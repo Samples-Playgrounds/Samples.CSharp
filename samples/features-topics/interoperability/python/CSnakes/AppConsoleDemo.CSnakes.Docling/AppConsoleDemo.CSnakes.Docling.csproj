@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="docling\convert.py">
+    <AdditionalFiles Include="docling/convert.py">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </AdditionalFiles>
     <AdditionalFiles Include="docling/requirements.txt">
