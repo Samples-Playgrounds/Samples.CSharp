@@ -253,4 +253,38 @@ public partial class
 
         return stdout_2.ToArray();
     }
+    
+    [Benchmark]
+    public async
+        Task<string[]>
+                                        Test_34_CliWrap_StandardOutput_AsStringArray_Via_ListenAsync
+                                        (
+                                        )
+    {
+        cmd = global::CliWrap.Cli
+                                .Wrap("javac")
+                                .WithArguments("--version")
+                                ;
+        await foreach (global::CliWrap.EventStream.CommandEvent cmd_event in cmd.ListenAsync())
+        {
+            switch (cmd_event)
+            {
+                case StartedCommandEvent sce:
+                    Console.WriteLine($"Started: {sce.ProcessId}");
+                    break;
+                case StandardErrorCommandEvent sece:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine($"err> {sece.Text}");
+                    break;
+                case StandardOutputCommandEvent soce:
+                    Console.WriteLine($"out> {soce.Text}");
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        return stdout_2.ToArray();
+    }
+    
 }
