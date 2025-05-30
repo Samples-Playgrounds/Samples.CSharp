@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Holisticware.Library.Snippets.CharacterSeparatedValues.CSV", "Holisticware.Library.Snippets.CharacterSeparatedValues.CSV\Holisticware.Library.Snippets.CharacterSeparatedValues.CSV.csproj", "{7BE96640-6F93-45A6-827C-9E5566517834}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.CharacterSeparatedValues.CSV", "AppConsole.Tests.Benchmarks.CharacterSeparatedValues.CSV\AppConsole.Tests.Benchmarks.CharacterSeparatedValues.CSV.csproj", "{53B243C5-A474-4574-8975-13F1644F3908}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BE96640-6F93-45A6-827C-9E5566517834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE96640-6F93-45A6-827C-9E5566517834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE96640-6F93-45A6-827C-9E5566517834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE96640-6F93-45A6-827C-9E5566517834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53B243C5-A474-4574-8975-13F1644F3908}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53B243C5-A474-4574-8975-13F1644F3908}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53B243C5-A474-4574-8975-13F1644F3908}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53B243C5-A474-4574-8975-13F1644F3908}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

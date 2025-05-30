@@ -1,10 +1,25 @@
 ## CSV
 
-https://github.com/JoshClose/CsvHelper
+*   samples
 
-https://github.com/MarkPflug/Sylvan
+    *   https://github.com/datablist/sample-csv-files
 
-https://github.com/nietras/Sep
+## CvsHelper
+
+*   https://github.com/JoshClose/CsvHelper
+
+*   https://joshclose.github.io/CsvHelper/
+
+## Sep
+
+*   https://github.com/nietras/Sep
+
+## Sylvan
+
+*   https://github.com/MarkPflug/Sylvan
+
+
+
 
 https://github.com/stevehansen/csv
 
@@ -14,7 +29,7 @@ https://github.com/phatcher/CsvReader
 
     https://github.com/Sjord/CsvReader
 
-https://github.com/nreco/csv?tab=readme-ov-file
+https://github.com/nreco/csv
 
 https://github.com/jitbit/CsvExport
 
@@ -24,7 +39,7 @@ https://github.com/ServiceStack/ServiceStack.Text
 
 https://github.com/TinyCsvParser/TinyCsvParser
 
-https://github.com/tspence/csharp-csv-reader?tab=readme-ov-file
+https://github.com/tspence/csharp-csv-reader
 
     https://www.joelverhagen.com/blog/2020/12/fastest-net-csv-parsers
 
