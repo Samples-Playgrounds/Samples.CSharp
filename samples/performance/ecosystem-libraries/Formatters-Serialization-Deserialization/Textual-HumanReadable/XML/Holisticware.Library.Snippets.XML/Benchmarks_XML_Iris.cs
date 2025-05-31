@@ -49,6 +49,10 @@ public partial class
         global::System.Runtime.Serialization.DataContractSerializer
                                         serializer_rdc_2 = new DataContractSerializer(typeof(Models.Iris));
 
+    private static
+        string
+                                        content = System.IO.File.ReadAllText("Data/iris.xml");
+
 
     [Benchmark]
     public
@@ -77,7 +81,7 @@ public partial class
     [Benchmark]
     public
         string
-                                        Test_11_Serialize_01_System_Runtime_Serialization_Serialize_with_MemoryStream
+                                        Test_11_Serialize_01_System_Runtime_Serialization_with_MemoryStream
                                         (
                                         )
     {
@@ -95,7 +99,7 @@ public partial class
     [Benchmark]
     public
         string
-                                        Test_11_Serialize_02_System_Runtime_Serialization_Serialize_with_RecyclableMemoryStream
+                                        Test_11_Serialize_02_System_Runtime_Serialization_with_RecyclableMemoryStream
                                         (
                                         )
     {
@@ -113,7 +117,7 @@ public partial class
     [Benchmark]
     public
         string
-                                        Test_12_Serialize_01_System_Xml_Serialization_Serialize_with_MemoryStream
+                                        Test_12_Serialize_01_System_Xml_Serialization_with_MemoryStream
                                         (
                                         )
     {
@@ -121,10 +125,10 @@ public partial class
 
         using (global::System.IO.MemoryStream ms = new ())
         {
-            using(StringWriter textWriter = new StringWriter())
+            using(StringWriter tw = new ())
             {
-                serializer_xsxs_2.Serialize(textWriter, Benchmarks_XML.iris);
-                result = textWriter.ToString();
+                serializer_xsxs_2.Serialize(tw, Benchmarks_XML.iris);
+                result = tw.ToString();
             }
         }
 
@@ -134,7 +138,7 @@ public partial class
     [Benchmark]
     public
         string
-                                        Test_12_Serialize_02_System_Xml_Serialization_Serialize_with_RecyclableMemoryStream
+                                        Test_12_Serialize_02_System_Xml_Serialization_with_RecyclableMemoryStream
                                         (
                                         )
     {
@@ -142,11 +146,79 @@ public partial class
 
         using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
         {
-            using(StringWriter textWriter = new StringWriter())
+            using(StringWriter tw = new ())
             {
-                serializer_xsxs_2.Serialize(textWriter, Benchmarks_XML.iris);
-                result = textWriter.ToString();
+                serializer_xsxs_2.Serialize(tw, Benchmarks_XML.iris);
+                result = tw.ToString();
             }
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Iris
+                                        Test_21_Deserialize_01_System_Runtime_Serialization_with_MemoryStream
+                                        (
+                                        )
+    {
+        Models.Iris result = default;
+
+        using (System.IO.MemoryStream ms = new (System.Text.Encoding.UTF8.GetBytes(content)))
+        {
+            result = (Iris)serializer_rdc_2.ReadObject(ms);
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Iris
+                                        Test_21_Deserialize_02_System_Runtime_Serialization_with_RecyclableMemoryStream
+                                        (
+                                        )
+    {
+        Models.Iris result = default;
+
+        using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
+        {
+            result = (Iris)serializer_rdc_2.ReadObject(ms);
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Iris
+                                        Test_22_Deserialize_01_System_Xml_Serialization_with_MemoryStream
+                                        (
+                                        )
+    {
+        Models.Iris result = default;
+
+        using (System.IO.MemoryStream ms = new (System.Text.Encoding.UTF8.GetBytes(content)))
+        {
+            result = (Iris)serializer_xsxs_2.Deserialize(ms);
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Iris
+                                        Test_22_Deserialize_02_System_Xml_Serialization_with_RecyclableMemoryStream
+                                        (
+                                        )
+    {
+        Models.Iris result = default;
+
+        using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
+        {
+            result = (Iris)serializer_xsxs_2.Deserialize(ms);
         }
 
         return result;

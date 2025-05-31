@@ -49,6 +49,9 @@ public partial class
         global::System.Runtime.Serialization.DataContractSerializer
                                         serializer_rdc_1 = new DataContractSerializer(typeof(Models.Weather));
 
+    private static
+        string
+                                        content = System.IO.File.ReadAllText("Data/weather.xml");
 
     [Benchmark]
     public
@@ -121,10 +124,10 @@ public partial class
 
         using (global::System.IO.MemoryStream ms = new ())
         {
-            using(StringWriter textWriter = new StringWriter())
+            using(StringWriter tw = new ())
             {
-                serializer_xsxs_1.Serialize(textWriter, Benchmarks_XML.weather);
-                result = textWriter.ToString();
+                serializer_xsxs_1.Serialize(tw, Benchmarks_XML.weather);
+                result = tw.ToString();
             }
         }
 
@@ -142,11 +145,79 @@ public partial class
 
         using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
         {
-            using(StringWriter textWriter = new StringWriter())
+            using(StringWriter tw = new ())
             {
-                serializer_xsxs_1.Serialize(textWriter, Benchmarks_XML.weather);
-                result = textWriter.ToString();
+                serializer_xsxs_1.Serialize(tw, Benchmarks_XML.weather);
+                result = tw.ToString();
             }
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Weather
+                                        Test_21_Deserialize_01_System_Runtime_Serialization_with_MemoryStream
+                                        (
+                                        )
+    {
+        Models.Weather result = default;
+
+        using (System.IO.MemoryStream ms = new (System.Text.Encoding.UTF8.GetBytes(content)))
+        {
+            result = (Weather)serializer_rdc_1.ReadObject(ms);
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Weather
+                                        Test_21_Deserialize_02_System_Runtime_Serialization_with_RecyclableMemoryStream
+                                        (
+                                        )
+    {
+        Models.Weather result = default;
+
+        using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
+        {
+            result = (Weather)serializer_rdc_1.ReadObject(ms);
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Weather
+                                        Test_22_Deserialize_01_System_Xml_Serialization_with_MemoryStream
+                                        (
+                                        )
+    {
+        Models.Weather result = default;
+
+        using (System.IO.MemoryStream ms = new (System.Text.Encoding.UTF8.GetBytes(content)))
+        {
+            result = (Weather)serializer_xsxs_1.Deserialize(ms);
+        }
+
+        return result;
+    }
+
+    [Benchmark]
+    public
+        Models.Weather
+                                        Test_22_Deserialize_02_System_Xml_Serialization_with_RecyclableMemoryStream
+                                        (
+                                        )
+    {
+        Models.Weather result = default;
+
+        using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
+        {
+            result = (Weather)serializer_xsxs_1.Deserialize(ms);
         }
 
         return result;
