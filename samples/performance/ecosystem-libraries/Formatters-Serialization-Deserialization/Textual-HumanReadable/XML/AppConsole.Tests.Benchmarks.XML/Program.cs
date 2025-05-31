@@ -3,15 +3,16 @@ using BenchmarkDotNet.Running;
 
 using Holisticware.Library.Snippets.XML;
 
-//Summary summary = BenchmarkRunner.Run<Benchmarks_XML>();
-
-Benchmarks_XML bm = new();
+Summary summary_w = BenchmarkRunner.Run<Benchmarks_XML_Weather>();
+Summary summary_i = BenchmarkRunner.Run<Benchmarks_XML_Iris>();
 
 /*
-*/
-string content = string.Empty;
+Benchmarks_XML bm = new();
 
-content = bm.Test_11_System_Xml_Serialization_Serialize_with_MemoryStream_Iris();
-content = bm.Test_11_System_Xml_Serialization_Serialize_with_RecyclableMemoryStream_Iris();
+   string content = string.Empty;
+
+content = bm.Test_12_System_Xml_Serialization_Serialize_with_MemoryStream_Iris();
+content = bm.Test_12_System_Xml_Serialization_Serialize_with_RecyclableMemoryStream_Iris();
+*/
 
 return;

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Iris xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <SepalLength>5.1</SepalLength>
+    <SepalWidth>3.5</SepalWidth>
+    <PetalLength>1.4</PetalLength>
+    <PetalWidth>0.2</PetalWidth>
+    <Variety>Setosa</Variety>
+</Iris>

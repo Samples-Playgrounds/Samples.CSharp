@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Data\iris.csv" CopyToOutputDirectory="PreserveNewest"/>
+    <None Include="Data\iris.xml" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Data\weather.xml" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
