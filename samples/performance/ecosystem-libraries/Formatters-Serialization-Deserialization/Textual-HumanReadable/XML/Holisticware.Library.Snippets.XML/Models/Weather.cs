@@ -1,161 +1,181 @@
 namespace Holisticware.Library.Snippets.XML.Models;
 
-public class
+public partial class
                                         Weather
 {
     public
         int
                                         MinTemp
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
 
     public
         int
                                         MaxTemp
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Rainfall
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Evaporation
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Sunshine
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         string
                                         WindGustDir
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         WindGustSpeed
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         string
                                         WindDir9am
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         string
                                         WindDir3pm
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         WindSpeed9am
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         WindSpeed3pm
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Humidity9am
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Humidity3pm
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Pressure9am
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Pressure3pm
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Cloud9am
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Cloud3pm
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Temp9am
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         Temp3pm
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         string
                                         RainToday
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         int
                                         RISK_MM
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
+
     public
         string
                                         RainTomorrow
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
 }
