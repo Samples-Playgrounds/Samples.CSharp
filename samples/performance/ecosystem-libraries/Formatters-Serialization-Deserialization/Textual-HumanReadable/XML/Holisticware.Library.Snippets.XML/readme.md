@@ -4,6 +4,7 @@ readme.md
 
 https://github.com/MarkPflug/Sylvan/blob/main/docs/Csv/Sylvan.Data.Csv.md
 
+https://code-maze.com/csharp-xml-deserialization/
 
 ## Bwnchmarks
 
@@ -51,3 +52,45 @@ DefaultJob : .NET 9.0.4 (9.0.425.16305), Arm64 RyuJIT AdvSIMD
 
 
 
+## Diverse
+
+Errors for desearialization `Data/weather.srs.xml`
+
+```
+| Test_21_Deserialize_01_System_Runtime_Serialization_with_MemoryStream                   | 3,889.49 ns | 1.6174 | 0.0305 |   13560 B |
+| Test_21_Deserialize_02_System_Runtime_Serialization_with_RecyclableMemoryStream         |          NA |     NA |     NA |        NA |
+| Test_22_Deserialize_01_System_Xml_Serialization_with_MemoryStream                       |          NA |     NA |     NA |        NA |
+| Test_22_Deserialize_02_System_Xml_Serialization_with_RecyclableMemoryStream             |          NA |     NA |     NA |        NA |
+
+```
+
+```
+// Benchmark: Benchmarks_XML_Weather.Test_21_Deserialize_02_System_Runtime_Serialization_with_RecyclableMemoryStream: DefaultJob
+
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.Xml.XmlException: Unexpected end of file.
+ 
+```
+
+```
+// Benchmark: Benchmarks_XML_Weather.Test_22_Deserialize_01_System_Xml_Serialization_with_MemoryStream: DefaultJob
+
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: There is an error in XML document (1, 2).
+ ---> System.InvalidOperationException: <Weather xmlns='http://schemas.datacontract.org/2004/07/Holisticware.Library.Snippets.XML.Models'> was not expected.
+```
+
+
+```
+// Benchmark: Benchmarks_XML_Weather.Test_22_Deserialize_02_System_Xml_Serialization_with_RecyclableMemoryStream: DefaultJob
+/
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation.
+ ---> System.InvalidOperationException: There is an error in XML document (0, 0).
+ ---> System.Xml.XmlException: Root element is missing.
+```
+
+
+Errors for desearialization `Data/weather.srs.xml`
+
+```
+```
