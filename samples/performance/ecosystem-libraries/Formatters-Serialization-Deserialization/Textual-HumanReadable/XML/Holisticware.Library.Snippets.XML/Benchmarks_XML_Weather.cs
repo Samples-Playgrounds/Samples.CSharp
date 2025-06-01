@@ -51,7 +51,34 @@ public partial class
 
     private static
         string
-                                        content = System.IO.File.ReadAllText("Data/weather.xml");
+                                        content =
+                                            """
+                                            <?xml version="1.0" encoding="utf-8"?>
+                                            <Weather xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+                                                <MinTemp>10</MinTemp>
+                                                <MaxTemp>20</MaxTemp>
+                                                <Rainfall>5</Rainfall>
+                                                <Evaporation>3</Evaporation>
+                                                <Sunshine>8</Sunshine>
+                                                <WindGustDir>N</WindGustDir>
+                                                <WindGustSpeed>30</WindGustSpeed>
+                                                <WindDir9am>NE</WindDir9am>
+                                                <WindDir3pm>SE</WindDir3pm>
+                                                <WindSpeed9am>15</WindSpeed9am>
+                                                <WindSpeed3pm>20</WindSpeed3pm>
+                                                <Humidity9am>60</Humidity9am>
+                                                <Humidity3pm>50</Humidity3pm>
+                                                <Pressure9am>1010</Pressure9am>
+                                                <Pressure3pm>1005</Pressure3pm>
+                                                <Cloud9am>2</Cloud9am>
+                                                <Cloud3pm>1</Cloud3pm>
+                                                <Temp9am>0</Temp9am>
+                                                <Temp3pm>0</Temp3pm>
+                                                <RISK_MM>0</RISK_MM>
+                                            </Weather>
+                                            """
+                                            // System.IO.File.ReadAllText("Data/weather.srs.xml")
+                                            ;
 
     [Benchmark]
     public
@@ -166,7 +193,7 @@ public partial class
 
         using (System.IO.MemoryStream ms = new (System.Text.Encoding.UTF8.GetBytes(content)))
         {
-            result = (Weather)serializer_rdc_1.ReadObject(ms);
+            result = (Weather) serializer_rdc_1.ReadObject(ms);
         }
 
         return result;
@@ -183,7 +210,9 @@ public partial class
 
         using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
         {
-            result = (Weather)serializer_rdc_1.ReadObject(ms);
+            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            ms.Write(buffer, 0, buffer.Length);
+            result = (Weather) serializer_rdc_1.ReadObject(ms);
         }
 
         return result;
@@ -191,16 +220,16 @@ public partial class
 
     [Benchmark]
     public
-        Models.Weather
+        Models.Weather?
                                         Test_22_Deserialize_01_System_Xml_Serialization_with_MemoryStream
                                         (
                                         )
     {
-        Models.Weather result = default;
+        Models.Weather? result = default;
 
         using (System.IO.MemoryStream ms = new (System.Text.Encoding.UTF8.GetBytes(content)))
         {
-            result = (Weather)serializer_xsxs_1.Deserialize(ms);
+            result = (Weather) serializer_xsxs_1.Deserialize(ms);
         }
 
         return result;
@@ -217,7 +246,9 @@ public partial class
 
         using (global::Microsoft.IO.RecyclableMemoryStream ms = manager.GetStream())
         {
-            result = (Weather)serializer_xsxs_1.Deserialize(ms);
+            byte[] buffer = System.Text.Encoding.UTF8.GetBytes(content);
+            ms.Write(buffer, 0, buffer.Length);
+            result = (Weather) serializer_xsxs_1.Deserialize(ms);
         }
 
         return result;
