@@ -4,16 +4,19 @@
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
+    <!--
+    C# 13 preview - `field` contextual keyword for properties
+    https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/field
+    -->
+    <LangVersion>preview</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="Data\iris.xml" CopyToOutputDirectory="PreserveNewest" />
-    <None Include="Data\weather.xml" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="Data\weather.srs.xml" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="Data\weather.sxs.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
