@@ -28,8 +28,8 @@ public partial class
                                                             );
         using Microsoft.IO.RecyclableMemoryStream ms = rmsm.GetStream();
         fs.CopyTo(ms);
-        using System.IO.StreamReader sr = new System.IO.StreamReader(ms);
-        
+        using System.IO.StreamReader sr = new (ms);
+
         char[] buffer = new char[4096]; //.AsSpan();
         int numberRead;
         using Cysharp.Text.Utf16ValueStringBuilder sb = Cysharp.Text.ZString.CreateStringBuilder();
@@ -37,8 +37,8 @@ public partial class
         {
             sb.Append(buffer[..numberRead]);
         }
-        
-        return sb.ToString();        
+
+        return sb.ToString();
     }
-    
+
 }

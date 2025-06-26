@@ -11,7 +11,7 @@ namespace Core.IO;
 /// </summary>
 /// https://www.linkedin.com/pulse/efficient-reading-large-csv-files-leonardo-jacques-da-silva-1laaf/
 ///     https://github.com/leosul/FileReadWritePerformance
-///     
+///
 public partial class
                                         File
 {
@@ -21,7 +21,7 @@ public partial class
                                         (
                                             string file_path,
                                             char[] separators,
-                                            Func<string[], string> line_transformer = null
+                                            Func<string[], string>? line_transformer = null
                                         )
     {
         string[] lines = System.IO.File.ReadAllLines(file_path);

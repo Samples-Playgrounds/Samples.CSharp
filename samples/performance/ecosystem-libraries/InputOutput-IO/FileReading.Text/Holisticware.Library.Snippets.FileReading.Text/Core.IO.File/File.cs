@@ -13,31 +13,33 @@ public partial class
                                         File
 {
     static
-                                        File()
+                                        File
+                                        (
+                                        )
     {
-        ReadAllTextImplementation 
+        ReadAllTextImplementation
             = ReadAllTextWithFileUsingStreamRecyclableAndMemoryStreamAndStreamReaderAndReadBlockIntoZString;
         ReadAllLinesImplementation
             = ReadAllLinesWithFileReadAllLines;
-        
+
         return;
     }
 
     public static
-        Func<string, string>
+        System.Func<string, string>
                                         ReadAllTextImplementation
     {
         get;
         set;
-    } 
-    
+    }
+
     public static
         Func<string, string[]>
                                         ReadAllLinesImplementation
     {
         get;
         set;
-    } 
+    }
 
     public static
         string
@@ -58,10 +60,10 @@ public partial class
     {
         return ReadAllTextImplementation(file_path);
     }
-    
-    private static readonly 
-        Microsoft.IO.RecyclableMemoryStreamManager 
+
+    private static readonly
+        Microsoft.IO.RecyclableMemoryStreamManager
                                         rmsm = new Microsoft.IO.RecyclableMemoryStreamManager();
 
-    
+
 }

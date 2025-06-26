@@ -27,6 +27,8 @@ namespace Holisticware.Library.Snippets.FileReading.Text;
 [XmlExporterAttribute.FullCompressed]
 //[Orderer(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
 [HideColumns("Error", "StdDev")]
+[SimpleJob(BenchmarkDotNet.Jobs.RuntimeMoniker.Net80)]
+[SimpleJob(BenchmarkDotNet.Jobs.RuntimeMoniker.Net90)]
 public partial class
                                         Benchmarks_FileReading_Text_ReadAllLines
 {
@@ -38,12 +40,12 @@ public partial class
                                         (
                                         )
     {
-        Core.IO.File.ReadAllLinesImplementation 
+        Core.IO.File.ReadAllLinesImplementation
                 = Core.IO.File.ReadAllLinesWithFileReadAllLines;
-        
+
         return;
     }
-    
+
     [Benchmark]
     [Arguments("td/s1/kb.1.txt")]
     [Arguments("td/s1/kb.2.txt")]
@@ -66,8 +68,8 @@ public partial class
                                         )
     {
         return Core.IO.File.ReadAllLines(file_path_test_data);
-    }    
-    
+    }
+
     [Benchmark]
     [Arguments("td/s1/kb.1.txt")]
     [Arguments("td/s1/kb.2.txt")]
@@ -93,9 +95,9 @@ public partial class
                                                 (
                                                     file_path_test_data
                                                 );
-    }    
+    }
     //------------------------------------------------------------------------------------------------------------------
- 
+
     //------------------------------------------------------------------------------------------------------------------
     [GlobalSetup(Target = nameof(ReadAllLinesWithFileOpenReadAndStreamReaderReadLine_InDirect))]
     public
@@ -104,12 +106,12 @@ public partial class
                                         (
                                         )
     {
-        Core.IO.File.ReadAllLinesImplementation 
+        Core.IO.File.ReadAllLinesImplementation
                 = Core.IO.File.ReadAllLinesWithFileOpenReadAndStreamReaderReadLine;
-        
+
         return;
     }
-    
+
     [Benchmark]
     [Arguments("td/s1/kb.1.txt")]
     [Arguments("td/s1/kb.2.txt")]
@@ -132,8 +134,8 @@ public partial class
                                         )
     {
         return Core.IO.File.ReadAllLines(file_path_test_data);
-    }    
-    
+    }
+
     [Benchmark]
     [Arguments("td/s1/kb.1.txt")]
     [Arguments("td/s1/kb.2.txt")]
@@ -159,7 +161,7 @@ public partial class
                                                 (
                                                     file_path_test_data
                                                 );
-    }    
+    }
     //------------------------------------------------------------------------------------------------------------------
 
     //------------------------------------------------------------------------------------------------------------------
@@ -170,12 +172,12 @@ public partial class
                                         (
                                         )
     {
-        Core.IO.File.ReadAllLinesImplementation 
+        Core.IO.File.ReadAllLinesImplementation
                 = Core.IO.File.ReadAllLinesAndSplitWithFileOpenReadToMemoryStreamAndAndStreamReaderReadLine;
-        
+
         return;
     }
-    
+
     [Benchmark]
     [Arguments("td/s1/kb.1.txt")]
     [Arguments("td/s1/kb.2.txt")]
@@ -198,8 +200,8 @@ public partial class
                                         )
     {
         return Core.IO.File.ReadAllLines(file_path_test_data);
-    }    
-    
+    }
+
     [Benchmark]
     [Arguments("td/s1/kb.1.txt")]
     [Arguments("td/s1/kb.2.txt")]
@@ -225,8 +227,63 @@ public partial class
                                                 (
                                                     file_path_test_data
                                                 );
-    }    
+    }
+
+    [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
+    [Arguments("td/192.txt")]
+    [Arguments("td/258.txt")]
+    [Arguments("td/519.1mb.csv")]
+    [Arguments("td/530.2mb.csv")]
+    [Arguments("td/545.5mb.csv")]
+    [Arguments("td/509.10mb.csv")]
+    [Arguments("td/558.50mb.csv")]
+    public async
+        Task<string[]>
+                                        ReadAllLinesAndSplitWithPipelinesRecyclableMemoryStream_Direct_01
+                                        (
+                                            string file_path_test_data
+                                        )
+    {
+        return await Core.IO.File.ReadAllLinesAndSplitWithPipelinesRecyclableMemoryStream
+                                                (
+                                                    file_path_test_data
+                                                );
+    }
+
+
+    [Benchmark]
+    [Arguments("td/s1/kb.1.txt")]
+    [Arguments("td/s1/kb.2.txt")]
+    [Arguments("td/s1/kb.5.txt")]
+    [Arguments("td/s1/kb.10.txt")]
+    [Arguments("td/s1/kb.20.txt")]
+    [Arguments("td/s1/kb.50.txt")]
+    [Arguments("td/192.txt")]
+    [Arguments("td/258.txt")]
+    [Arguments("td/519.1mb.csv")]
+    [Arguments("td/530.2mb.csv")]
+    [Arguments("td/545.5mb.csv")]
+    [Arguments("td/509.10mb.csv")]
+    [Arguments("td/558.50mb.csv")]
+    public async
+        Task<string[]>
+                                        ReadAllLinesWithPipelinesAsyncAsync_Direct_01
+                                        (
+                                            string file_path_test_data
+                                        )
+    {
+        return await Core.IO.File.ReadAllLinesWithPipelinesAsync
+                                                (
+                                                    file_path_test_data
+                                                );
+    }
     //------------------------------------------------------------------------------------------------------------------
-    
-    
+
+
 }
