@@ -35,6 +35,8 @@ using global::CliWrap.EventStream;
 [XmlExporterAttribute.FullCompressed]
 [Orderer(SummaryOrderPolicy.FastestToSlowest, MethodOrderPolicy.Declared)]
 [HideColumns("Error", "StdDev")]
+[SimpleJob(BenchmarkDotNet.Jobs.RuntimeMoniker.Net80)]
+[SimpleJob(BenchmarkDotNet.Jobs.RuntimeMoniker.Net90)]
 public partial class
                                        Benchmarks_Console_CliWrap_StdOut
 {
@@ -46,8 +48,8 @@ public partial class
     string                                                 stdout_1 = string.Empty;
     List<string>                                           stdout_2 = new();
     string[]                                               stdout_3 = default;
-    
-    
+
+
     [Benchmark]
     public async
         Task<string[]>
@@ -92,7 +94,7 @@ public partial class
 
         return result.StandardOutput;
     }
-    
+
     [Benchmark]
     public async
         Task<string>
@@ -113,7 +115,7 @@ public partial class
 
         return sb.ToString();
     }
-    
+
     [Benchmark]
     public async
         Task<string>
@@ -133,7 +135,7 @@ public partial class
                                     );
         return sb.ToString();
     }
-    
+
     [Benchmark]
     public async
         Task<string>
@@ -149,7 +151,7 @@ public partial class
 
         return sb.ToString();
     }
-    
+
     [Benchmark]
     public async
         Task<string[]>
@@ -185,7 +187,7 @@ public partial class
                                 stdout_2.Add
                                 ;
         await cmd.ExecuteBufferedAsync();
-        
+
         return stdout_2.ToArray();
     }
 
@@ -207,10 +209,10 @@ public partial class
                             .ToArray()
                             ;
         await cmd.ExecuteBufferedAsync();
-        
+
         return stdout_3.ToArray();
     }
-    
+
     [Benchmark]
     public async
         Task<string[]>
@@ -232,7 +234,7 @@ public partial class
 
         return stdout_2.ToArray();
     }
-    
+
     [Benchmark]
     public async
         Task<string[]>
@@ -253,7 +255,7 @@ public partial class
 
         return stdout_2.ToArray();
     }
-    
+
     [Benchmark]
     public async
         Task<string[]>
@@ -286,5 +288,5 @@ public partial class
 
         return stdout_2.ToArray();
     }
-    
+
 }

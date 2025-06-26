@@ -2,7 +2,16 @@
 
 readme.md
 
-*   https://github.com/Tyrrrz/CliWrap
+```
+dotnet run \
+    --configuration Release \
+    --framework net9.0
+    -- \
+    --job short \
+    --runtimes net8.0 net9.0 net10.0
+```
+  
+* https://github.com/Tyrrrz/CliWrap
     
 *   https://dev.to/tyrrrz/cliwrap-execute-shell-commands-with-extensive-support-for-piping-3gm8
 
