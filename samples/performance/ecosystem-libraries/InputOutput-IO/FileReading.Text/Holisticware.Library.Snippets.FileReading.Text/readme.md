@@ -1,5 +1,11 @@
 # FileReading
 
+Playground and benchmarking workspace for repos:
+
+  https://github.com/HolisticWare-Libraries/HolisticWare.Core.IO
+
+Execute benchmarks:
+
 ```shell
 dotnet run \
     --configuration Release \
@@ -9,6 +15,7 @@ dotnet run \
     --runtimes net8.0 net9.0 net10.0
 
 ```
+
 *  Text
 
   *   https://code-maze.com/csharp-fastest-way-to-read-text-file/
