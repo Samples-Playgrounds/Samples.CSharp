@@ -6,15 +6,23 @@
 
 *   `string.Concat`
 
+*   `StringBuilder`
+
+    *   https://andrewlock.net/series/a-deep-dive-on-stringbuilder/
+
 *   `Cysharp.Text.ZString`
 
 *   `ValueStringBuilder`
+
+    *   https://source.dot.net/#System.Text.RegularExpressions/src/libraries/Common/src/System/Text/ValueStringBuilder.cs
 
     *   https://andrewlock.net/a-deep-dive-on-stringbuilder-part-6-vaulestringbuilder-a-stack-based-string-builder/
 
     *   https://linkdotnet.github.io/StringBuilder/articles/getting_started.html
 
     *   https://steven-giesel.com/blogPost/66075e5c-c95a-44c4-8030-cd45d7855d1c/net-tips-and-tricks-valuestringbuilder
+
+    *   https://linkdotnet.github.io/StringBuilder/
 
 # Strings
 
