@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Holisticware.Library.Snippets.Strings.Benchmarks_Strings_Split-20250728-095444</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, macOS Sequoia 15.5 (24F74) [Darwin 24.5.0]
+Apple M4 Max, 1 CPU, 16 logical and 16 physical cores
+.NET SDK 9.0.303
+  [Host]   : .NET 9.0.8 (9.0.825.36510), Arm64 RyuJIT AdvSIMD
+  .NET 8.0 : .NET 8.0.19 (8.0.1925.36006), Arm64 RyuJIT AdvSIMD
+  .NET 9.0 : .NET 9.0.8 (9.0.825.36510), Arm64 RyuJIT AdvSIMD
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method                             </th><th>Runtime</th><th>input         </th><th>delimiter</th><th>delimiters</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>,</td><td>?</td><td>2.457 ns</td><td>0.0211 ns</td><td>0.0187 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>;</td><td>?</td><td>2.463 ns</td><td>0.0119 ns</td><td>0.0111 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>;</td><td>?</td><td>2.727 ns</td><td>0.0101 ns</td><td>0.0089 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 8.0</td><td>adsad(...)sasds [78]</td><td>\t</td><td>?</td><td>2.748 ns</td><td>0.0080 ns</td><td>0.0067 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 8.0</td><td>adsad(...)sasds [82]</td><td>\t</td><td>?</td><td>2.781 ns</td><td>0.0138 ns</td><td>0.0129 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>,</td><td>?</td><td>2.795 ns</td><td>0.0046 ns</td><td>0.0039 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 9.0</td><td>adsad(...)sasds [82]</td><td>\t</td><td>?</td><td>3.157 ns</td><td>0.0188 ns</td><td>0.0167 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>,</td><td>?</td><td>3.188 ns</td><td>0.0151 ns</td><td>0.0126 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 9.0</td><td>adsad(...)sasds [78]</td><td>\t</td><td>?</td><td>3.241 ns</td><td>0.0141 ns</td><td>0.0118 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>;</td><td>?</td><td>3.517 ns</td><td>0.0112 ns</td><td>0.0105 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>,</td><td>?</td><td>3.524 ns</td><td>0.0048 ns</td><td>0.0040 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopStringNative</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>;</td><td>?</td><td>3.536 ns</td><td>0.0357 ns</td><td>0.0334 ns</td><td>0.0029</td><td>24 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopWithSpan</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>?</td><td>Char[2]</td><td>127.358 ns</td><td>0.3432 ns</td><td>0.3042 ns</td><td>0.0706</td><td>592 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopWithSpan</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>?</td><td>Char[1]</td><td>128.524 ns</td><td>0.6385 ns</td><td>0.5973 ns</td><td>0.0706</td><td>592 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopWithSpan</td><td>.NET 8.0</td><td>adsad(...)sasds [69]</td><td>?</td><td>Char[2]</td><td>130.452 ns</td><td>0.5742 ns</td><td>0.4795 ns</td><td>0.0706</td><td>592 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopWithSpan</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>?</td><td>Char[1]</td><td>140.422 ns</td><td>0.9839 ns</td><td>0.8216 ns</td><td>0.0706</td><td>592 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopWithSpan</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>?</td><td>Char[2]</td><td>140.602 ns</td><td>0.8386 ns</td><td>0.7844 ns</td><td>0.0706</td><td>592 B</td>
+</tr><tr><td>HolisticWare_Core_String_ChopWithSpan</td><td>.NET 9.0</td><td>adsad(...)sasds [69]</td><td>?</td><td>Char[2]</td><td>141.664 ns</td><td>0.8901 ns</td><td>0.7433 ns</td><td>0.0706</td><td>592 B</td>
+</tr></tbody></table>
+</body>
+</html>

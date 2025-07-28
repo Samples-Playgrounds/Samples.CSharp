@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>Holisticware.Library.Snippets.Strings.Benchmarks_Strings_Concatenation-20250728-094154</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet v0.14.0, macOS Sequoia 15.5 (24F74) [Darwin 24.5.0]
+Apple M4 Max, 1 CPU, 16 logical and 16 physical cores
+.NET SDK 9.0.303
+  [Host]   : .NET 9.0.8 (9.0.825.36510), Arm64 RyuJIT AdvSIMD
+  .NET 8.0 : .NET 8.0.19 (8.0.1925.36006), Arm64 RyuJIT AdvSIMD
+  .NET 9.0 : .NET 9.0.8 (9.0.825.36510), Arm64 RyuJIT AdvSIMD
+</code></pre>
+<pre><code></code></pre>
+
+<table>
+<thead><tr><th>Method                                </th><th>Runtime</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen0</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>StringCreate_Complex</td><td>.NET 8.0</td><td>11.72 ns</td><td>0.025 ns</td><td>0.024 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>StringCreate_Complex</td><td>.NET 9.0</td><td>13.61 ns</td><td>0.056 ns</td><td>0.052 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>StringCreate_Simple</td><td>.NET 8.0</td><td>15.60 ns</td><td>0.057 ns</td><td>0.051 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>StringCreate_Simple</td><td>.NET 9.0</td><td>16.88 ns</td><td>0.026 ns</td><td>0.022 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>String_Join</td><td>.NET 9.0</td><td>16.96 ns</td><td>0.170 ns</td><td>0.159 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>String_Interpolation</td><td>.NET 9.0</td><td>23.42 ns</td><td>0.107 ns</td><td>0.095 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>String_Join</td><td>.NET 8.0</td><td>24.41 ns</td><td>0.061 ns</td><td>0.054 ns</td><td>0.0153</td><td>128 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Concat</td><td>.NET 9.0</td><td>27.43 ns</td><td>0.038 ns</td><td>0.036 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>String_Interpolation</td><td>.NET 8.0</td><td>27.52 ns</td><td>0.033 ns</td><td>0.029 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Concat</td><td>.NET 8.0</td><td>27.67 ns</td><td>0.030 ns</td><td>0.027 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>StringBuilderExact24</td><td>.NET 8.0</td><td>28.07 ns</td><td>0.078 ns</td><td>0.069 ns</td><td>0.0229</td><td>192 B</td>
+</tr><tr><td>StringBuilderExact24</td><td>.NET 9.0</td><td>28.63 ns</td><td>0.081 ns</td><td>0.068 ns</td><td>0.0229</td><td>192 B</td>
+</tr><tr><td>StringBuilderEstimate100</td><td>.NET 8.0</td><td>32.91 ns</td><td>0.120 ns</td><td>0.112 ns</td><td>0.0411</td><td>344 B</td>
+</tr><tr><td>StringBuilderEstimate100</td><td>.NET 9.0</td><td>33.50 ns</td><td>0.070 ns</td><td>0.066 ns</td><td>0.0411</td><td>344 B</td>
+</tr><tr><td>ValueStringBuilder_Append</td><td>.NET 9.0</td><td>33.72 ns</td><td>0.211 ns</td><td>0.198 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>String_Concat</td><td>.NET 9.0</td><td>33.91 ns</td><td>0.583 ns</td><td>0.546 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>StringAddition</td><td>.NET 9.0</td><td>34.15 ns</td><td>0.456 ns</td><td>0.426 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>HolisticWare_Core_String_ConcatWithConcat</td><td>.NET 9.0</td><td>34.82 ns</td><td>0.471 ns</td><td>0.440 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>HolisticWare_Core_String_ConcatWithConcat</td><td>.NET 8.0</td><td>37.02 ns</td><td>0.265 ns</td><td>0.207 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>StringAddition</td><td>.NET 8.0</td><td>37.98 ns</td><td>0.788 ns</td><td>0.773 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Join</td><td>.NET 9.0</td><td>38.96 ns</td><td>0.137 ns</td><td>0.128 ns</td><td>0.0153</td><td>128 B</td>
+</tr><tr><td>String_Concat</td><td>.NET 8.0</td><td>39.23 ns</td><td>0.822 ns</td><td>1.751 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Join</td><td>.NET 8.0</td><td>41.89 ns</td><td>0.042 ns</td><td>0.038 ns</td><td>0.0153</td><td>128 B</td>
+</tr><tr><td>StringBuilder</td><td>.NET 8.0</td><td>44.60 ns</td><td>0.048 ns</td><td>0.042 ns</td><td>0.0334</td><td>280 B</td>
+</tr><tr><td>ValueStringBuilder_Append</td><td>.NET 8.0</td><td>44.90 ns</td><td>0.062 ns</td><td>0.058 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>HolisticWare_Core_String_ConcatWithJoin</td><td>.NET 9.0</td><td>45.16 ns</td><td>0.130 ns</td><td>0.116 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>StringBuilder_Core_Text_StringBuilderCache</td><td>.NET 8.0</td><td>47.00 ns</td><td>0.122 ns</td><td>0.114 ns</td><td>0.0334</td><td>280 B</td>
+</tr><tr><td>StringBuilder</td><td>.NET 9.0</td><td>47.97 ns</td><td>0.138 ns</td><td>0.129 ns</td><td>0.0334</td><td>280 B</td>
+</tr><tr><td>String_Format</td><td>.NET 9.0</td><td>48.19 ns</td><td>0.106 ns</td><td>0.099 ns</td><td>0.0086</td><td>72 B</td>
+</tr><tr><td>HolisticWare_Core_String_ConcatWithJoin</td><td>.NET 8.0</td><td>48.44 ns</td><td>0.988 ns</td><td>0.924 ns</td><td>0.0181</td><td>152 B</td>
+</tr><tr><td>StringBuilder_Core_Text_StringBuilderCache</td><td>.NET 9.0</td><td>49.41 ns</td><td>0.161 ns</td><td>0.151 ns</td><td>0.0334</td><td>280 B</td>
+</tr><tr><td>String_Format</td><td>.NET 8.0</td><td>74.02 ns</td><td>0.553 ns</td><td>0.491 ns</td><td>0.0153</td><td>128 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Format</td><td>.NET 9.0</td><td>83.55 ns</td><td>0.395 ns</td><td>0.350 ns</td><td>0.0095</td><td>80 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Format</td><td>.NET 8.0</td><td>93.94 ns</td><td>0.987 ns</td><td>0.923 ns</td><td>0.0095</td><td>80 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Utf16ValueStringBuilder</td><td>.NET 8.0</td><td>732.72 ns</td><td>8.988 ns</td><td>8.407 ns</td><td>7.8125</td><td>65632 B</td>
+</tr><tr><td>Cysharp_Text_ZString_Utf16ValueStringBuilder</td><td>.NET 9.0</td><td>852.28 ns</td><td>11.634 ns</td><td>10.883 ns</td><td>7.8125</td><td>65632 B</td>
+</tr></tbody></table>
+</body>
+</html>
