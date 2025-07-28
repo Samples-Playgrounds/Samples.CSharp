@@ -11,12 +11,12 @@ namespace Holisticware.Library.Snippets.Strings;
 public partial class
                                         Benchmarks_Strings_Concatenation
 {
-    private class 
-                                        Config 
+    private class
+                                        Config
                                         :
                                         BenchmarkDotNet.Configs.ManualConfig
     {
-        public 
+        public
                                         Config
                                         (
                                         )
@@ -25,11 +25,11 @@ public partial class
                 BenchmarkDotNet.Reports.SummaryStyle.Default.WithRatioStyle(BenchmarkDotNet.Columns.RatioStyle.Percentage);
         }
     }
-    
+
 
     string title = "Mr.";
     string firstName = "Name";
-    string middleName = "MName"; 
+    string middleName = "MName";
     string lastName = "NameLast";
 
     [Benchmark]
@@ -75,10 +75,10 @@ public partial class
                                             }
                                         );
     }
-    
+
     [Benchmark]
-    public 
-        string 
+    public
+        string
                                         Cysharp_Text_ZString_Utf16ValueStringBuilder
                                         (
                                         )
@@ -92,27 +92,27 @@ public partial class
         zstring_stringBuilder_method_local.Append(middleName);
         zstring_stringBuilder_method_local.Append(' ');
         zstring_stringBuilder_method_local.Append(lastName);
-        
+
         return zstring_stringBuilder_method_local.ToString();
     }
 
     [Benchmark]
-    public 
-        string 
+    public
+        string
                                         Cysharp_Text_ZString_Concat
                                         (
                                         )
     {
         // same as x + y + z
         //_ = Cysharp.Text.ZString.Concat(title, " ", firstName, " ", middleName, " ", lastName);
-        
+
         return Cysharp.Text.ZString.Concat(title, " ", firstName, " ", middleName, " ", lastName);
 
     }
 
     [Benchmark]
-    public 
-        string 
+    public
+        string
                                         Cysharp_Text_ZString_Format
                                         (
                                         )
@@ -143,12 +143,12 @@ public partial class
     {
         return Cysharp.Text.ZString.Join
                                     (
-                                        ',', 
+                                        ',',
                                         title, firstName, middleName, lastName
                                     );
 
     }
-    
+
     [Benchmark]
     public
         string
@@ -180,7 +180,7 @@ public partial class
             .Append(middleName).Append(' ')
             .Append(lastName).ToString();
     }
-    
+
     [Benchmark]
     public
         string
@@ -220,13 +220,13 @@ public partial class
                                         (
                                         )
     {
-        return 
-            title 
-            + ' ' + 
-            firstName 
+        return
+            title
             + ' ' +
-            middleName 
-            + ' ' + 
+            firstName
+            + ' ' +
+            middleName
+            + ' ' +
             lastName
             ;
     }
@@ -272,14 +272,25 @@ public partial class
                                         )
     {
         return string.
-            Concat(new string[] { title, " ", firstName, " ", middleName, " ", lastName });
+                    Concat
+                        (
+                            new string[]
+                            {
+                                title, " ", firstName, " ",
+                                middleName, " ", lastName
+                            }
+                        );
     }
 
-    #if NET8_0_OR_GREATER || NETSTANDARD2_1
+#if NET8_0_OR_GREATER || NETSTANDARD2_1
     // https://www.reddit.com/r/dotnet/comments/wgwct9/what_is_the_use_case_for_netstandard21/
     // https://apisof.net/catalog/0ea2d97d848a21bf37885c4d35fcad2a
     [Benchmark]
-    public string StringCreate_Simple()
+    public
+        string
+                                        StringCreate_Simple
+                                        (                                            
+                                        )
     {
         return 
             string.Create
@@ -330,4 +341,25 @@ public partial class
                     );
     }
     #endif
+
+    [Benchmark]
+    public
+        string
+
+                                        ValueStringBuilder_Append
+                                        (
+                                        )
+    {
+        Core.Text.ValueStringBuilder valueStringBuilder = new();
+        valueStringBuilder.Append(title);
+        valueStringBuilder.Append(' ');
+        valueStringBuilder.Append(firstName);
+        valueStringBuilder.Append(' ');
+        valueStringBuilder.Append(middleName);
+        valueStringBuilder.Append(' ');
+        valueStringBuilder.Append(lastName);
+
+        return valueStringBuilder.ToString();
+    }
+
 }
