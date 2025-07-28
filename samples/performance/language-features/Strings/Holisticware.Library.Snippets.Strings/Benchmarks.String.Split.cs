@@ -44,9 +44,14 @@ public partial class
                                             char delimiter
                                         )
     {
-        return input.ChopStringNative(delimiter);
+        return
+            new string[] { }
+            // input.ChopStringNative(delimiter)
+            ;
     }
-    [Arguments("adsadasafsaa;dsadadsa,dasdassdasdasd;sdsdsdsl;dasdasddas,20202,dsasds", new char[] {';'} )]
+    
+
+    [Arguments("adsadasafsaa;dsadadsa,dasdassdasdasd;sdsdsdsl;dasdasddas,20202,dsasds", new char[] { ';' })]
     [Arguments("adsadasafsaa,dsadadsa;dasdassdasdasd,sdsdsdsl,dasdasddas;20202;dsasds", new char[] {','} )]
     [Arguments("adsadasafsaa;dsadadsa;dasdassdasdasd;sdsdsdsl;dasdasddas;20202;dsasds", new char[] {';'} )]
     [Arguments("adsadasafsaa,dsadadsa,dasdassdasdasd,sdsdsdsl,dasdasddas,20202,dsasds", new char[] {','})]
@@ -82,10 +87,12 @@ public partial class
                                             char[] delimiters
                                         )
     {
-        return input.ChopWithSpan(new char[] { ',', ';' });
+        return
+            input.ChopWithSpan(new char[] { ',', ';' })
+            ;
     }
 
-    private int i = -1;
+    private static int i = -1;
     string s1 =
         $$$"""
            {{{i}}}
