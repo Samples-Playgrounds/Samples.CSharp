@@ -40,8 +40,92 @@ https://www.answeroverflow.com/m/1078607141134401616
 
 ## Results
 
-### 20250321
+### 20250812
 
+```
+BenchmarkDotNet v0.14.0, macOS Sequoia 15.6 (24G84) [Darwin 24.6.0]
+Apple M4 Max, 1 CPU, 16 logical and 16 physical cores
+.NET SDK 9.0.303
+[Host]   : .NET 8.0.19 (8.0.1925.36514), Arm64 RyuJIT AdvSIMD
+.NET 8.0 : .NET 8.0.19 (8.0.1925.36514), Arm64 RyuJIT AdvSIMD
+.NET 9.0 : .NET 9.0.8 (9.0.825.36511), Arm64 RyuJIT AdvSIMD
+```
+
+
+| Method                                       | Runtime  | Mean      | Error     | StdDev    | Gen0   | Allocated |
+|--------------------------------------------- |--------- |----------:|----------:|----------:|-------:|----------:|
+| StringCreate_Complex                         | .NET 8.0 |  11.68 ns |  0.015 ns |  0.013 ns | 0.0086 |      72 B |
+| StringCreate_Complex                         | .NET 9.0 |  13.57 ns |  0.033 ns |  0.029 ns | 0.0086 |      72 B |
+| StringCreate_Simple                          | .NET 8.0 |  15.19 ns |  0.040 ns |  0.034 ns | 0.0086 |      72 B |
+| StringCreate_Simple                          | .NET 9.0 |  16.58 ns |  0.038 ns |  0.036 ns | 0.0086 |      72 B |
+| String_Join                                  | .NET 9.0 |  17.02 ns |  0.027 ns |  0.024 ns | 0.0086 |      72 B |
+| String_Interpolation                         | .NET 9.0 |  23.59 ns |  0.035 ns |  0.033 ns | 0.0086 |      72 B |
+| String_Join                                  | .NET 8.0 |  24.01 ns |  0.092 ns |  0.086 ns | 0.0153 |     128 B |
+| String_Interpolation                         | .NET 8.0 |  26.83 ns |  0.024 ns |  0.022 ns | 0.0086 |      72 B |
+| Cysharp_Text_ZString_Concat                  | .NET 8.0 |  26.95 ns |  0.034 ns |  0.031 ns | 0.0086 |      72 B |
+| StringBuilderExact24                         | .NET 8.0 |  27.07 ns |  0.057 ns |  0.053 ns | 0.0229 |     192 B |
+| Cysharp_Text_ZString_Concat                  | .NET 9.0 |  27.14 ns |  0.103 ns |  0.080 ns | 0.0086 |      72 B |
+| StringBuilderExact24                         | .NET 9.0 |  28.52 ns |  0.056 ns |  0.053 ns | 0.0229 |     192 B |
+| StringBuilderEstimate100                     | .NET 8.0 |  31.92 ns |  0.086 ns |  0.081 ns | 0.0411 |     344 B |
+| StringBuilderEstimate100                     | .NET 9.0 |  33.08 ns |  0.065 ns |  0.060 ns | 0.0411 |     344 B |
+| String_Concat                                | .NET 9.0 |  33.19 ns |  0.150 ns |  0.140 ns | 0.0181 |     152 B |
+| StringAddition                               | .NET 9.0 |  33.58 ns |  0.342 ns |  0.320 ns | 0.0181 |     152 B |
+| ValueStringBuilder_Append                    | .NET 9.0 |  33.99 ns |  0.083 ns |  0.078 ns | 0.0086 |      72 B |
+| HolisticWare_Core_String_ConcatWithConcat    | .NET 9.0 |  34.62 ns |  0.215 ns |  0.180 ns | 0.0181 |     152 B |
+| Cysharp_Text_ZaString_                       | .NET 8.0 |  36.90 ns |  0.116 ns |  0.109 ns | 0.0086 |      72 B |
+| String_Concat                                | .NET 8.0 |  37.37 ns |  0.767 ns |  0.941 ns | 0.0181 |     152 B |
+| StringAddition                               | .NET 8.0 |  37.52 ns |  0.791 ns |  1.135 ns | 0.0181 |     152 B |
+| HolisticWare_Core_String_ConcatWithConcat    | .NET 8.0 |  38.53 ns |  0.768 ns |  0.788 ns | 0.0181 |     152 B |
+| Cysharp_Text_ZString_Join                    | .NET 9.0 |  39.52 ns |  0.197 ns |  0.184 ns | 0.0153 |     128 B |
+| Cysharp_Text_ZaString_                       | .NET 9.0 |  40.21 ns |  0.241 ns |  0.225 ns | 0.0086 |      72 B |
+| Cysharp_Text_ZString_Join                    | .NET 8.0 |  42.26 ns |  0.146 ns |  0.137 ns | 0.0153 |     128 B |
+| StringBuilder                                | .NET 8.0 |  44.68 ns |  0.176 ns |  0.164 ns | 0.0334 |     280 B |
+| ValueStringBuilder_Append                    | .NET 8.0 |  45.10 ns |  0.210 ns |  0.196 ns | 0.0086 |      72 B |
+| HolisticWare_Core_String_ConcatWithJoin      | .NET 9.0 |  45.71 ns |  0.343 ns |  0.321 ns | 0.0181 |     152 B |
+| StringBuilder_Core_Text_StringBuilderCache   | .NET 8.0 |  46.20 ns |  0.164 ns |  0.153 ns | 0.0334 |     280 B |
+| HolisticWare_Core_String_ConcatWithJoin      | .NET 8.0 |  47.29 ns |  0.165 ns |  0.146 ns | 0.0181 |     152 B |
+| String_Format                                | .NET 9.0 |  47.92 ns |  0.042 ns |  0.035 ns | 0.0086 |      72 B |
+| StringBuilder                                | .NET 9.0 |  48.01 ns |  0.139 ns |  0.130 ns | 0.0334 |     280 B |
+| StringBuilder_Core_Text_StringBuilderCache   | .NET 9.0 |  49.65 ns |  0.161 ns |  0.151 ns | 0.0334 |     280 B |
+| String_Format                                | .NET 8.0 |  76.99 ns |  0.354 ns |  0.331 ns | 0.0153 |     128 B |
+| Cysharp_Text_ZString_Format                  | .NET 9.0 |  84.04 ns |  0.590 ns |  0.552 ns | 0.0095 |      80 B |
+| Cysharp_Text_ZString_Format                  | .NET 8.0 |  93.83 ns |  1.267 ns |  1.185 ns | 0.0095 |      80 B |
+| Cysharp_Text_ZString_Utf16ValueStringBuilder | .NET 8.0 | 706.19 ns | 11.272 ns | 10.544 ns | 7.8125 |   65632 B |
+| Cysharp_Text_ZString_Utf16ValueStringBuilder | .NET 9.0 | 793.98 ns | 10.547 ns |  9.866 ns | 7.8125 |   65632 B |
+
+```
+BenchmarkDotNet v0.14.0, macOS Sequoia 15.6 (24G84) [Darwin 24.6.0]
+Apple M4 Max, 1 CPU, 16 logical and 16 physical cores
+.NET SDK 9.0.303
+[Host]   : .NET 8.0.19 (8.0.1925.36514), Arm64 RyuJIT AdvSIMD
+.NET 8.0 : .NET 8.0.19 (8.0.1925.36514), Arm64 RyuJIT AdvSIMD
+.NET 9.0 : .NET 9.0.8 (9.0.825.36511), Arm64 RyuJIT AdvSIMD
+```
+
+| Method                                    | Runtime  | input                | delimiter | delimiters | Mean       | Error     | StdDev    | Gen0   | Allocated |
+|------------------------------------------ |--------- |--------------------- |---------- |----------- |-----------:|----------:|----------:|-------:|----------:|
+| HolisticWare_Core_String_ChopStringNative | .NET 8.0 | adsad(...)sasds [82] | \t        | ?          |   2.451 ns | 0.0106 ns | 0.0089 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 8.0 | adsad(...)sasds [78] | \t        | ?          |   2.466 ns | 0.0118 ns | 0.0111 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 8.0 | adsad(...)sasds [69] | ;         | ?          |   2.709 ns | 0.0127 ns | 0.0113 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 8.0 | adsad(...)sasds [69] | ,         | ?          |   2.713 ns | 0.0152 ns | 0.0142 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 8.0 | adsad(...)sasds [69] | ;         | ?          |   2.779 ns | 0.0095 ns | 0.0084 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 8.0 | adsad(...)sasds [69] | ,         | ?          |   2.787 ns | 0.0148 ns | 0.0131 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 9.0 | adsad(...)sasds [78] | \t        | ?          |   3.176 ns | 0.0147 ns | 0.0138 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 9.0 | adsad(...)sasds [69] | ,         | ?          |   3.514 ns | 0.0240 ns | 0.0212 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 9.0 | adsad(...)sasds [82] | \t        | ?          |   3.517 ns | 0.0072 ns | 0.0060 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 9.0 | adsad(...)sasds [69] | ;         | ?          |   3.520 ns | 0.0083 ns | 0.0074 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 9.0 | adsad(...)sasds [69] | ,         | ?          |   3.531 ns | 0.0134 ns | 0.0125 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopStringNative | .NET 9.0 | adsad(...)sasds [69] | ;         | ?          |   3.532 ns | 0.0362 ns | 0.0283 ns | 0.0029 |      24 B |
+| HolisticWare_Core_String_ChopWithSpan     | .NET 8.0 | adsad(...)sasds [69] | ?         | Char[1]    | 128.324 ns | 0.5921 ns | 0.5249 ns | 0.0706 |     592 B |
+| HolisticWare_Core_String_ChopWithSpan     | .NET 8.0 | adsad(...)sasds [69] | ?         | Char[2]    | 131.172 ns | 0.4931 ns | 0.4118 ns | 0.0706 |     592 B |
+| HolisticWare_Core_String_ChopWithSpan     | .NET 8.0 | adsad(...)sasds [69] | ?         | Char[2]    | 131.715 ns | 0.4330 ns | 0.3839 ns | 0.0706 |     592 B |
+| HolisticWare_Core_String_ChopWithSpan     | .NET 9.0 | adsad(...)sasds [69] | ?         | Char[1]    | 138.439 ns | 0.7859 ns | 0.7351 ns | 0.0706 |     592 B |
+| HolisticWare_Core_String_ChopWithSpan     | .NET 9.0 | adsad(...)sasds [69] | ?         | Char[2]    | 139.241 ns | 1.2182 ns | 1.0799 ns | 0.0706 |     592 B |
+| HolisticWare_Core_String_ChopWithSpan     | .NET 9.0 | adsad(...)sasds [69] | ?         | Char[2]    | 140.874 ns | 1.7254 ns | 1.6139 ns | 0.0706 |     592 B |
+
+
+
+### 20250321
 
 ```
 BenchmarkDotNet v0.14.0, macOS Sequoia 15.3.2 (24D81) [Darwin 24.3.0]
