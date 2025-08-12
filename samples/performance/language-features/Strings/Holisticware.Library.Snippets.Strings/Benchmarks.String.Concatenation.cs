@@ -1,4 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
+#if NET8_0_OR_GREATER
+using ZaString.Extensions;
+#endif
 
 namespace Holisticware.Library.Snippets.Strings;
 
@@ -134,6 +137,32 @@ public partial class
 
     }
 
+    #if NET8_0_OR_GREATER
+    [Benchmark]
+    public
+        string
+                                        Cysharp_Text_ZaString_
+                                        (
+                                        )
+    {
+        Span<char> buffer = stackalloc char[200];
+        var builder = ZaString.Core.ZaSpanStringBuilder.Create(buffer);
+
+        builder
+            .Append(title)
+            .Append(' ')
+            .Append(firstName)
+            .Append(' ')
+            .Append(middleName)
+            .Append(' ')
+            .Append(lastName)
+            .Append(' ')
+            ;
+
+        return builder.ToString();
+    }
+    #endif
+    
     [Benchmark]
     public
         string
@@ -282,7 +311,7 @@ public partial class
                         );
     }
 
-#if NET8_0_OR_GREATER || NETSTANDARD2_1
+    #if NET8_0_OR_GREATER
     // https://www.reddit.com/r/dotnet/comments/wgwct9/what_is_the_use_case_for_netstandard21/
     // https://apisof.net/catalog/0ea2d97d848a21bf37885c4d35fcad2a
     [Benchmark]
