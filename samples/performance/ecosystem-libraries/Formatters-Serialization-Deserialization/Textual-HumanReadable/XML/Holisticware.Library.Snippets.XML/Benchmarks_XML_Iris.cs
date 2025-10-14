@@ -4,7 +4,7 @@ using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using BenchmarkDotNet.Order;
 
-
+using FormatterXmlSerializer=Core.Data.Formatters.Text.XML.System.Xml.Serialization.XmlSerializer.Formatter;
 using Holisticware.Library.Snippets.XML.Models;
 
 
