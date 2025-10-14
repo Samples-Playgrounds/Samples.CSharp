@@ -1,4 +1,4 @@
-# CliWrap
+# XML
 
 readme.md
 
@@ -94,3 +94,58 @@ Errors for desearialization `Data/weather.srs.xml`
 
 ```
 ```
+
+## Diverse
+
+*   https://stackoverflow.com/questions/9502356/improve-performance-of-xmlserializer
+
+https://github.com/morgankenyon/BenchmarkExamples/tree/master/src
+
+https://ryaremchuk.blogspot.com/2012/10/xml-serialization.html
+
+https://www.reddit.com/r/programming/comments/1496el/high_performance_xml_serialization_in_net/
+
+https://www.reddit.com/r/csharp/comments/dqkgtr/is_there_no_really_good_xml_serialization_library/
+
+So far I tried quite a lot of different libraries:
+
+Default XmlSerializer
+
+Using the XmlAttributeOverrides I could configure the serialization without touching the data classes
+
+A naming strategy could by implemented via this hack
+
+Sadly, converters for specific scenarios / parts of the data structure are not supported
+
+Default DataContractSerializer
+
+Can't be used because XML attributes are not supported
+
+YAXLib
+
+Supports a lot more scenarios via its attributes
+
+There is no way to apply the serialization information without touching the data classes
+
+ExtendedXmlSerializer
+
+Supports converters for custom serialization
+
+Sadly, I could not find a way in the documentation to serialize lists without serializing .NET-specific type information and internal properties like Capacity
+
+NetBike.XML
+
+Supports configuration without touching the data classes (by building custom contracts)
+
+Supports naming strategies for camelCasing
+
+Sadly, it is not maintained for two years and is not available for .NET Standard (however I could fork and transfer the project)
+
+Actually, I did already work on the serialization to JSON (via Newtonsoft) and BSON (via MongoDB Adapter) and it all worked like a charm, so I wondered if there is a library for XML that provides an equal amount of features.
+
+
+https://medium.com/@maximn/serialization-performance-comparison-xml-binary-json-p-ad737545d227
+
+https://learn.microsoft.com/en-us/dotnet/standard/serialization/binaryformatter-migration-guide/choose-a-serializer
+
+https://aloiskraus.wordpress.com/2022/11/23/net-serialization-roundup-2022/
