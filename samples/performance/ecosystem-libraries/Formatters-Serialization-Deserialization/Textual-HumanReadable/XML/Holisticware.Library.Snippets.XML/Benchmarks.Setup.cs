@@ -40,6 +40,5 @@ public partial class
                                                         PetalLength = 1.4,
                                                         PetalWidth = 0.2,
                                                         Variety = "Setosa"
-
                                                     };
 }
