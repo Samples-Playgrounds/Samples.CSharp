@@ -83,7 +83,7 @@ public partial class
     [Benchmark]
     public
         void
-                                        Test_01_Initialize_01_System_Xml_Serialization_XmlSerializer_Create
+                                        Test_01_Initialize_01_System_Xml_Serialization_XmlSerializer_CreateConstruct
                                         (
                                         )
     {
@@ -95,7 +95,7 @@ public partial class
     [Benchmark]
     public
         void
-                                        Test_02_Initialize_01_System_Runtime_Serialization_DataContractSerializer_Create
+                                        Test_02_Initialize_01_System_Runtime_Serialization_DataContractSerializer_CreateConstruct
                                         (
                                         )
     {
@@ -149,12 +149,22 @@ public partial class
     {
         string result = default;
 
+        System.Xml.XmlWriterSettings settings = new ()
+        {
+            Encoding = new System.Text.UnicodeEncoding(false, false), // no BOM in a .NET string
+            Indent = false,
+            OmitXmlDeclaration = false
+        };
+
         using (global::System.IO.MemoryStream ms = new ())
         {
-            using(StringWriter tw = new ())
+            using (StringWriter tw = new ())
             {
-                serializer_xsxs_1.Serialize(tw, Benchmarks_XML.weather);
-                result = tw.ToString();
+                using (System.Xml.XmlWriter xw = System.Xml.XmlWriter.Create(tw, settings))
+                {
+                    serializer_xsxs_1.Serialize(xw, Benchmarks_XML.weather);
+                    result = tw.ToString();
+                }
             }
         }
 
