@@ -19,7 +19,10 @@ Benchmarks_XML_Person bm = new();
 string content = string.Empty;
 Person? person = null;
 
-person = bm.Test_02_Deserialize_02_System_Runtime_Serialization_DeserializeNaive();
+content = bm.Test_03_SharpSerializer_01_SerializeCached();
+person = bm.Test_03_SharpSerializer_02_DeserializeCached();
+
+//Console.WriteLine(summary_w);();
 
 
 content = bm.Test_11_Serialize_01_System_Runtime_Serialization_Serialize_with_MemoryStream();
