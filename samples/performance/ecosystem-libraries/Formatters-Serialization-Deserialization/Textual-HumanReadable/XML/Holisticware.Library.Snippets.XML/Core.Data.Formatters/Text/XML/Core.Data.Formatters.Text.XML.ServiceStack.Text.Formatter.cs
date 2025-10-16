@@ -1,17 +1,17 @@
-namespace Core.Data.Formatters.Text.XML.SyServiceStack.Text;
+namespace Core.Data.Formatters.Text.XML.ServiceStack.Text;
 
+/// <summary>
+/// 
+/// </summary>
+/*
+                                        where T 
+                                        :
+                                        global::StackXML.IXmlSerializable,
+                                        new()
+*/
 public partial class
                                         Formatter
 {
-    public static
-        Dictionary
-        <
-            Type,
-            global::System.Xml.Serialization.XmlSerializer
-        >
-                                        Cache
-                                        = new ();
-
     public static
         string
                                         SerializeNaive<T>
@@ -21,17 +21,7 @@ public partial class
     {
         string? result = default(string);
         
-        return result;
-    }
-
-    public static
-        string
-                                        SerializeCached<T>
-                                        (
-                                            T t
-                                        )
-    {
-        string? result = default(string);
+        result = global::ServiceStack.Text.XmlSerializer.SerializeToString(t);
         
         return result;
     }
@@ -45,18 +35,9 @@ public partial class
     {
         T? t = default(T);
         
+        t = global::ServiceStack.Text.XmlSerializer.DeserializeFromString<T>(xml);
+
         return t;
     }
     
-    public static
-        T?
-                                        DeserializeCached<T>
-                                        (
-                                            string xml
-                                        )
-    {
-        T? t = default(T);
-        
-        return t;
-    }
 }
