@@ -3,8 +3,18 @@ namespace Core.Data.Formatters.Text.XML.SharpSerializer;
 public partial class
                                         Formatter
 {
+    private static readonly 
+        Microsoft.IO.RecyclableMemoryStreamManager
+                                        manager
+                                        = new ();
+
+    static
+        Polenter.Serialization.SharpSerializer 
+                                        serializer
+                                        = new();
+
     public static
-        string
+        string?
                                         SerializeNaive<T>
                                         (
                                             T t
@@ -12,11 +22,19 @@ public partial class
     {
         string? result = default(string);
         
+        Polenter.Serialization.SharpSerializer serializer = new();
+        
+        using (Microsoft.IO.RecyclableMemoryStream stream = manager.GetStream())
+        {
+            var buffer = stream.GetBuffer();
+            // serializer.Serialize(t, stream);
+        }
+        
         return result;
     }
 
     public static
-        string
+        string?
                                         SerializeCached<T>
                                         (
                                             T t
@@ -24,11 +42,15 @@ public partial class
     {
         string? result = default(string);
         
+        MemoryStream stream = new ( );
+
+        serializer.Serialize(t, stream);
+        
         return result;
     }
     
     public static
-        T
+        T?
                                         DeserializeNaive<T>
                                         (
                                             string xml
@@ -36,6 +58,9 @@ public partial class
     {
         T? t = default(T);
         
+        Polenter.Serialization.SharpSerializer serializer = new();
+        t = (T?)serializer.Deserialize(xml);
+
         return t;
     }
     
@@ -48,6 +73,8 @@ public partial class
     {
         T? t = default(T);
         
+        t = (T?)serializer.Deserialize(xml);
+
         return t;
     }
 
