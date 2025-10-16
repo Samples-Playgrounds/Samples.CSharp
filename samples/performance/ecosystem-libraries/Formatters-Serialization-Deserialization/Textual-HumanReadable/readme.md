@@ -1,5 +1,6 @@
 # Textual-HumanReadable
 
+*   https://manski.net/articles/csharp-dotnet/serializers-comparison
 
 ## JSON
 
