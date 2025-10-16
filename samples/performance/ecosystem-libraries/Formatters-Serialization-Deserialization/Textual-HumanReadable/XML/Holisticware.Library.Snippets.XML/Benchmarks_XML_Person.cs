@@ -5,6 +5,10 @@ using Holisticware.Library.Snippets.XML.Models;
 
 using FormatterXmlSerializer=Core.Data.Formatters.Text.XML.System.Xml.Serialization.XmlSerializer.Formatter;
 using FormatterDataContracSerializer=Core.Data.Formatters.Text.XML.System.Runtime.Serialization.DataContractSerializer.Formatter;
+using FormatterNetBike=Core.Data.Formatters.Text.XML.NetBike.Formatter;
+using FormatterYAXLib=Core.Data.Formatters.Text.XML.YAXLib.Formatter;
+using FormatterServiceStackText=Core.Data.Formatters.Text.XML.ServiceStack.Text.Formatter;
+using FormatterExtendedXmlSerializer=Core.Data.Formatters.Text.XML.ExtendedXmlSerializer.Formatter;
 
 namespace Holisticware.Library.Snippets.XML;
 
@@ -125,7 +129,7 @@ public partial class
         string
                                         xml_person =
                                                     """
-                                                    <Person id='1'>
+                                                    <Person>
                                                         <Name>John Doe</Name>
                                                         <Age>30</Age>
                                                         <City>New York</City>
@@ -135,7 +139,7 @@ public partial class
     [Benchmark]
     public
         string?
-                                        Test_01_Serialize_01_System_Xml_Serialization_SerializeNaive
+                                        Test_01_System_Xml_Serialization_XmlSerializer_01_SerializeNaive
                                         (
                                         )
     {
@@ -145,7 +149,7 @@ public partial class
     [Benchmark]
     public
         string?
-                                        Test_01_Serialize_01_System_Xml_Serialization_SerializeCached
+                                        Test_01_System_Xml_Serialization_XmlSerializer_01_SerializeCached
                                         (
                                         )
     {
@@ -155,7 +159,7 @@ public partial class
     [Benchmark]
     public
         Person?
-                                        Test_01_Deserialize_02_System_Xml_Serialization_DeserializeNaive
+                                        Test_01_System_Xml_Serialization_XmlSerializer_02_DeserializeNaive
                                         (
                                         )
     {
@@ -165,7 +169,7 @@ public partial class
     [Benchmark]
     public
         Person?
-                                        Test_01_Deserialize_01_System_Xml_Serialization_DeserializeCached
+                                        Test_01_System_Xml_Serialization_XmlSerializer_02_DeserializeCached
                                         (
                                         )
     {
@@ -175,7 +179,7 @@ public partial class
     [Benchmark]
     public
         string?
-                                        Test_02_Serialize_02_System_Runtime_Serialization_SerializeNaive
+                                        Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeNaive
                                         (
                                         )
     {
@@ -185,7 +189,7 @@ public partial class
     [Benchmark]
     public
         string?
-                                        Test_02_Serialize_01_System_Runtime_Serialization_SerializeCached
+                                        Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeCached
                                         (
                                         )
     {
@@ -195,7 +199,7 @@ public partial class
     [Benchmark]
     public
         Person?
-                                        Test_02_Deserialize_02_System_Runtime_Serialization_DeserializeNaive
+                                        Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeNaive
                                         (
                                         )
     {
@@ -205,11 +209,146 @@ public partial class
     [Benchmark]
     public
         Person?
-                                        Test_01_Deserialize_02_System_Xml_Serialization_DeserializeCached
+                                        Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeCached
                                         (
                                         )
     {
         return FormatterDataContracSerializer.DeserializeCached<Person>(xml_person);
+    }
+    
+    
+    
+    
+    [Benchmark]
+    public
+        string?
+                                        Test_03_NetBike_01_SerializeNaive
+                                        (
+                                        )
+    {
+        return FormatterNetBike.SerializeNaive<Person>(obj_person);
+    }
+    
+    [Benchmark]
+    public
+        string?
+                                        Test_03_NetBike_01_SerializeCached
+                                        (
+                                        )
+    {
+        return FormatterNetBike.SerializeCached<Person>(obj_person);
+    }
+    
+    [Benchmark]
+    public
+        Person?
+                                        Test_03_NetBike_02_DeserializeNaive
+                                        (
+                                        )
+    {
+        return FormatterNetBike.DeserializeNaive<Person>(xml_person);
+    }
+    
+    [Benchmark]
+    public
+        Person?
+                                        Test_03_NetBike_02_DeserializeCached
+                                        (
+                                        )
+    {
+        return FormatterNetBike.DeserializeCached<Person>(xml_person);
+    }
+    
+    
+    
+    
+    [Benchmark]
+    public
+        string?
+                                        Test_03_YAXLib_01_SerializeNaive
+                                        (
+                                        )
+    {
+        return FormatterYAXLib.SerializeNaive<Person>(obj_person);
+    }
+    
+    [Benchmark]
+    public
+        string?
+                                        Test_03_YAXLib_01_SerializeCached
+                                        (
+                                        )
+    {
+        return FormatterYAXLib.SerializeCached<Person>(obj_person);
+    }
+    
+    [Benchmark]
+    public
+        Person?
+                                        Test_03_YAXLib_02_DeserializeNaive
+                                        (
+                                        )
+    {
+        return FormatterYAXLib.DeserializeNaive<Person>(xml_person);
+    }
+    
+    [Benchmark]
+    public
+        Person?
+                                        Test_03_YAXLib_02_DeserializeCached
+                                        (
+                                        )
+    {
+        return FormatterYAXLib.DeserializeCached<Person>(xml_person);
+    }
+    
+    
+    
+    
+    
+    [Benchmark]
+    public
+        string?
+                                        Test_04_ServiceStackText_01_SerializeNaive
+                                        (
+                                        )
+    {
+        return FormatterServiceStackText.SerializeNaive<Person>(obj_person);
+    }
+    
+    [Benchmark]
+    public
+        Person?
+                                        Test_04_ServiceStackText_02_DeserializeNaive
+                                        (
+                                        )
+    {
+        return FormatterServiceStackText.DeserializeNaive<Person>(xml_person);
+    }
+    
+    
+    
+    
+    
+    
+    [Benchmark]
+    public
+        string?
+                                        Test_05_ExtendedXmlSerializer_01_SerializeNaive
+                                        (
+                                        )
+    {
+        return FormatterExtendedXmlSerializer.SerializeNaive<Person>(obj_person);
+    }
+    
+    [Benchmark]
+    public
+        Person?
+                                        Test_05_ExtendedXmlSerializer_01_DeserializeNaiveMemoryStream
+                                        (
+                                        )
+    {
+        return FormatterExtendedXmlSerializer.DeserializeNaiveMemoryStream<Person>(xml_person);
     }
     
 }
