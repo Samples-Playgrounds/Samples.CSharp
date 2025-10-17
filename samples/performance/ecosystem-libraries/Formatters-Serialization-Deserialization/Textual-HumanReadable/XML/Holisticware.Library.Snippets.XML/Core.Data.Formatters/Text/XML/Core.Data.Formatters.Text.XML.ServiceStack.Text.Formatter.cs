@@ -1,7 +1,9 @@
 namespace Core.Data.Formatters.Text.XML.ServiceStack.Text;
 
 /// <summary>
-/// 
+///
+/// uses
+///         System.Runtime.Serialization.DataContractSerializer
 /// </summary>
 /*
                                         where T 
