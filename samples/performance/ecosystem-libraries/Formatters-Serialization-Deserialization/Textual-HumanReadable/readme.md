@@ -6,7 +6,9 @@
 
 *   `System.Text.Json`
 
-    *      
+    *   https://learn.microsoft.com/en-us/dotnet/api/system.text.json?view=net-9.0
+
+    *   https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/how-to
 
 *   Newtonsoft.Json
 
@@ -24,7 +26,23 @@
 
 *   NetJSON
 
+    *   https://github.com/rpgmaker/NetJSON
+
+    *   https://github.com/rpgmaker/NetJSON/wiki/Quick-Guide
+
+*   System.Web.Script.Serialization.JavaScriptSerializer
+
+    *   https://learn.microsoft.com/en-us/dotnet/api/system.web.script.serialization.javascriptserializer
+
 *   ServiceStack
+
+    *   https://docs.servicestack.net/json-jsv-and-xml.html
+
+*   Serde.NET
+
+    *   https://github.com/serdedotnet/serde
+
+    *   https://serdedotnet.github.io/overview.html
 
 *   Protobuf.net
 
@@ -47,9 +65,27 @@
 
 ## XML
 
-*   System.Runtime.Serialization
+*   System.Runtime.Serialization.DataContractSerializer
 
-*   System.Xml.Serialization
+    *   opt in - everything must be marked with attributes
+
+    *   fast
+
+    *   https://stackoverflow.com/questions/784562/datacontractserializer-how-to-serialize-classes-members-without-datacontract-da
+
+    *   https://peterdaugaardrasmussen.com/2017/09/20/differences-between-datacontractserializer-and-xmlserializer/
+
+    *   https://pawelszczygielski.pl/2021/03/12/xmlserializer-vs-datacontractserializer-why-the-latter-is-better/
+
+    *   https://www.albahari.com/nutshell/DataContractSerializer.pdf
+
+*   System.Xml.Serialization.XmlSerializer
+
+    *   https://peterdaugaardrasmussen.com/2017/09/20/differences-between-datacontractserializer-and-xmlserializer/
+
+    *   https://pawelszczygielski.pl/2021/03/12/xmlserializer-vs-datacontractserializer-why-the-latter-is-better/
+
+*   System.Runtime.Serialization.NetDataContractSerializer
 
 *   ExtendedXmlSerializer
 
