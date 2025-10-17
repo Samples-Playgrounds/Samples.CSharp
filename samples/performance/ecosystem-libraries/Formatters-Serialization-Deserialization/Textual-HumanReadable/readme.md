@@ -12,23 +12,41 @@
 
 *   Newtonsoft.Json
 
+    *   https://www.newtonsoft.com/json
+
+    *   https://github.com/JamesNK/Newtonsoft.Json
+
 *   SpanJson
 
-*   JsonSrcGen
-
-*   Utf8Json
-
-*   fastJSON
-
-*   Jil
-
-*   Jsonics
+    *   https://github.com/Tornhoof/SpanJson
 
 *   NetJSON
 
     *   https://github.com/rpgmaker/NetJSON
 
     *   https://github.com/rpgmaker/NetJSON/wiki/Quick-Guide
+
+*   Utf8Json
+
+    *   https://github.com/neuecc/Utf8Json
+
+*   JsonSrcGen
+
+    *   https://github.com/trampster/JsonSrcGen
+
+*   fastJSON
+
+    *   https://github.com/mgholam/fastJSON
+
+    *   https://www.codeproject.com/articles/fastJSON
+
+*   Jil
+
+    *   https://github.com/kevin-montrose/Jil
+
+*   Jsonics
+
+    *   https://github.com/trampster/Jsonics
 
 *   System.Web.Script.Serialization.JavaScriptSerializer
 
@@ -106,6 +124,28 @@
 *   HolisticWare.YAXLib
 
 ## CSV Character Separated Values
+
+*   CsvHelper
+
+    *   https://joshclose.github.io/CsvHelper/
+
+    *   https://joshclose.github.io/CsvHelper/
+
+*   CSVFile
+
+    *   https://github.com/tspence/csharp-csv-reader
+
+*   Sylvan
+
+    *   https://github.com/MarkPflug/Sylvan
+
+*   Sep
+
+    *   https://github.com/nietras/Sep
+
+*   https://www.joelverhagen.com/blog/2020/12/fastest-net-csv-parsers
+
+*   https://stackoverflow.com/questions/3507498/reading-csv-files-using-c-sharp
 
 ## YAML
 
