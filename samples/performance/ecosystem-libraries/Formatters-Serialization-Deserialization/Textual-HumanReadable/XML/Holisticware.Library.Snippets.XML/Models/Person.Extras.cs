@@ -1,36 +1,34 @@
 namespace Holisticware.Library.Snippets.Models;
 
+[Serializable] 
+[global::System.Runtime.Serialization.DataContract]
 public partial class 
                                         Person
 {
-    public Person()
-    {
-        // [global::System.Runtime.Serialization.DataMemberAttribute()]
-        // lass also needs to have a parameterless default constructor
-        return;
-    }
-
+    [global::System.Runtime.Serialization.DataMember]
     public partial
         string
                                         Name
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
     
+    [global::System.Runtime.Serialization.DataMember]
     public partial
         int
                                         Age
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
     
+    [global::System.Runtime.Serialization.DataMember]
     public partial
         string
                                         City
     {
-        get;
-        set;
+        get => field;
+        set => field = value;
     }
 }

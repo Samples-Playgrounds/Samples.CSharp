@@ -1,4 +1,4 @@
-namespace Holisticware.Library.Snippets.XML.Models;
+namespace Holisticware.Library.Snippets.Models;
 
 public partial class
                                         Weather
