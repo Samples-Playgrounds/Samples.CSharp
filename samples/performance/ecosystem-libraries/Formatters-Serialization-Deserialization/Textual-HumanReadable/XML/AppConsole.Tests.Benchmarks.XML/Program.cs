@@ -1,16 +1,18 @@
 ﻿using BenchmarkDotNet.Reports;
 using BenchmarkDotNet.Running;
 
+using Holisticware.Library.Snippets.Models;
+
 using Holisticware.Library.Snippets.XML;
-using Holisticware.Library.Snippets.XML.Models;
+using Holisticware.Library.Snippets.JSON;
 
 //Summary summary_w = BenchmarkRunner.Run<Benchmarks_XML_Weather>();
 //Summary summary_i = BenchmarkRunner.Run<Benchmarks_XML_Iris>();
 
-Summary summary_p = BenchmarkRunner.Run<Benchmarks_XML_Person>();
+Summary summary_xml_person = BenchmarkRunner.Run<Benchmarks_XML_Person>();
+Summary summary_json_person = BenchmarkRunner.Run<Benchmarks_JSON_Person>();
 
 
-/*
 string root = "../../../../Holisticware.Library.Snippets.XML/Data/";
 string file;
 
@@ -19,9 +21,10 @@ Benchmarks_XML_Person bm = new();
 string content = string.Empty;
 Person? person = null;
 
-content = bm.Test_03_SharpSerializer_01_SerializeCached();
-person = bm.Test_03_SharpSerializer_02_DeserializeCached();
+content = bm.Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeCached();
+person = bm.Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeNaive();
 
+/*
 //Console.WriteLine(summary_w);();
 
 
