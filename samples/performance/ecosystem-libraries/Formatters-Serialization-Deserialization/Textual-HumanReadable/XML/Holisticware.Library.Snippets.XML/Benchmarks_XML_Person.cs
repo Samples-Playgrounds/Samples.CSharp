@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Attributes;
 
-using Holisticware.Library.Snippets.XML.Models;
+using Holisticware.Library.Snippets.Models;
 
 
 using FormatterXmlSerializer=Core.Data.Formatters.Text.XML.System.Xml.Serialization.XmlSerializer.Formatter;
