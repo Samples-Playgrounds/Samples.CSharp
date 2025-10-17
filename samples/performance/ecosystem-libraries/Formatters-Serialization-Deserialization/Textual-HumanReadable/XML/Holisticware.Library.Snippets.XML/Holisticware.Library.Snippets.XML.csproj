@@ -25,7 +25,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="NetJSON" Version="1.4.5" />
         <PackageReference Include="System.Xml.XmlSerializer" Version="4.3.0" />
         <PackageReference Include="YAXLib" Version="4.3.0" />
         <PackageReference Include="ServiceStack.Text" Version="8.9.0" />
@@ -39,6 +38,11 @@
         <PackageReference Include="SpanJson" Version="4.2.1" />
         <PackageReference Include="System.Text.Json" Version="9.0.10" />
         <PackageReference Include="Serde" Version="0.8.0" />
-    </ItemGroup>    
+        <PackageReference Include="NetJSON" Version="1.4.5" />
+        <PackageReference Include="Utf8Json" Version="1.3.7" />
+        <PackageReference Include="JsonSrcGen" Version="1.1.1" />
+        <PackageReference Include="Jil" Version="2.17.0" />
+        <PackageReference Include="Jsonics" Version="0.2.0-alpha" />
+    </ItemGroup>
 
 </Project>
