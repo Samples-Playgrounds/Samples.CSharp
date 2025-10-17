@@ -12,3 +12,5 @@
 
 *   https://github.com/HolisticWare-Libraries/HolisticWare.Core.Serialization/tree/master/samples/Text/XML/AppConsole.Text.XML.Benchmarks
 
+*   https://www.erata.net/net/net-serialization-choices/
+
