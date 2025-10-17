@@ -5,21 +5,7 @@ public partial class
 {
     public static
         string?
-                                        SerializeNaive<T>
-                                        (
-                                            T t
-                                        )
-    {
-        string? result = default(string);
-        
-        result = global::SpanJson.JsonSerializer.Generic.Utf16.Serialize(t);
-
-        return result;
-    }
-
-    public static
-        string?
-                                        SerializeCached<T>
+                                        Serialize<T>
                                         (
                                             T t
                                         )
@@ -33,7 +19,7 @@ public partial class
     
     public static
         T?
-                                        DeserializeNaive<T>
+                                        Deserialize<T>
                                         (
                                             string json
                                         )
@@ -44,20 +30,5 @@ public partial class
 
         return t;
     }
-    
-    public static
-        T?
-                                        DeserializeCached<T>
-                                        (
-                                            string json
-                                        )
-    {
-        T? t = default(T);
-        
-        t = global::SpanJson.JsonSerializer.Generic.Utf16.Deserialize<T>(json);
-
-        return t;
-    }
-
 
 }
