@@ -6,6 +6,10 @@ https://github.com/MarkPflug/Sylvan/blob/main/docs/Csv/Sylvan.Data.Csv.md
 
 https://code-maze.com/csharp-xml-deserialization/
 
+*   Microsoft.XmlSerializer.Generator
+
+    *   https://gist.github.com/filipnavara/1e8831c256498bad53b3aae94af87a20
+
 ## Bwnchmarks
 
 ### 20250531
