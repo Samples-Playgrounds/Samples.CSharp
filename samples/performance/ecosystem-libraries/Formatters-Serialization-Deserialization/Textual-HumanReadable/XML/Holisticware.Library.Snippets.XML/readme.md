@@ -12,6 +12,58 @@ https://code-maze.com/csharp-xml-deserialization/
 
 ## Bwnchmarks
 
+### 20251017
+
+```
+BenchmarkDotNet v0.14.0, macOS 26.0.1 (25A362) [Darwin 25.0.0]
+Apple M4 Max, 1 CPU, 16 logical and 16 physical cores
+.NET SDK 9.0.305
+  [Host]     : .NET 9.0.9 (9.0.925.41916), Arm64 RyuJIT AdvSIMD
+  DefaultJob : .NET 9.0.9 (9.0.925.41916), Arm64 RyuJIT AdvSIMD
+```
+#### XML
+
+| Method                                                                           | Mean               | Median             | Rank | Gen0     | Gen1     | Gen2    | Allocated |
+|--------------------------------------------------------------------------------- |-------------------:|-------------------:|-----:|---------:|---------:|--------:|----------:|
+| Test_01_System_Xml_Serialization_XmlSerializer_01_SerializeNaive                 |      2,859.6201 ns |      2,863.3788 ns |    9 |   2.0599 |   0.0458 |       - |   17265 B |
+| Test_01_System_Xml_Serialization_XmlSerializer_01_SerializeCached                |      1,139.0196 ns |      1,139.4246 ns |    7 |   1.8368 |   0.0439 |       - |   15400 B |
+| Test_01_System_Xml_Serialization_XmlSerializer_02_DeserializeNaive               |      3,398.3914 ns |      3,397.7610 ns |   10 |   1.6479 |   0.0610 |       - |   13905 B |
+| Test_01_System_Xml_Serialization_XmlSerializer_02_DeserializeCached              |      1,745.4872 ns |      1,747.4174 ns |    8 |   1.4343 |   0.0458 |       - |   12040 B |
+| Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeNaive    |        973.5442 ns |        972.2368 ns |    4 |   1.8177 |   0.0305 |       - |   15224 B |
+| Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeCached   |      1,059.7995 ns |      1,058.2190 ns |    6 |   1.8272 |        - |       - |   15304 B |
+| Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeNaive  |      1,151.7114 ns |      1,151.2736 ns |    7 |   1.3657 |   0.0439 |       - |   11424 B |
+| Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeCached |      1,022.9212 ns |      1,023.0029 ns |    5 |   1.3065 |   0.0458 |       - |   10936 B |
+| Test_03_NetBike_01_SerializeNaive                                                |     88,668.4222 ns |     88,730.1534 ns |   11 |   2.8076 |   1.3428 |       - |   24454 B |
+| Test_03_NetBike_01_SerializeCached                                               |        958.1063 ns |        958.7429 ns |    4 |   1.7643 |   0.0420 |       - |   14784 B |
+| Test_03_NetBike_02_DeserializeNaive                                              |    138,844.6695 ns |    138,690.7858 ns |   12 |   2.4414 |   1.2207 |       - |   22176 B |
+| Test_03_NetBike_02_DeserializeCached                                             |      1,005.5386 ns |      1,004.5280 ns |    5 |   1.3084 |   0.0458 |       - |   10944 B |
+| Test_03_YAXLib_01_SerializeNaive                                                 |          0.0060 ns |          0.0000 ns |    1 |        - |        - |       - |         - |
+| Test_03_YAXLib_01_SerializeCached                                                |          0.0963 ns |          0.0940 ns |    2 |        - |        - |       - |         - |
+| Test_03_YAXLib_02_DeserializeNaive                                               |          0.0088 ns |          0.0000 ns |    1 |        - |        - |       - |         - |
+| Test_03_YAXLib_02_DeserializeCached                                              |          0.0177 ns |          0.0000 ns |    1 |        - |        - |       - |         - |
+| Test_04_ServiceStackText_01_SerializeNaive                                       |        810.5966 ns |        810.6283 ns |    3 |   1.0328 |   0.0191 |       - |    8648 B |
+| Test_04_ServiceStackText_02_DeserializeNaive                                     |                 NA |                 NA |    ? |       NA |       NA |      NA |        NA |
+| Test_05_ExtendedXmlSerializer_01_SerializeNaive                                  | 16,028,864.0865 ns | 16,019,834.6250 ns |   13 | 562.5000 | 281.2500 | 62.5000 | 4944692 B |
+| Test_05_ExtendedXmlSerializer_01_DeserializeNaiveMemoryStream                    |                 NA |                 NA |    ? |       NA |       NA |      NA |        NA |
+
+
+#### JSON
+
+| Method                                          | Mean      | Rank | Gen0   | Gen1   | Allocated |
+|------------------------------------------------ |----------:|-----:|-------:|-------:|----------:|
+| Test_01_System_Text_Json_01_Serialize           | 116.69 ns |    4 | 0.0134 |      - |     112 B |
+| Test_01_System_Text_Json_02_Deserialize         | 182.36 ns |    6 | 0.0143 |      - |     120 B |
+| Test_02_Newtonsoft_JSON_NET_01_Serialize        | 251.73 ns |    7 | 0.1702 |      - |    1424 B |
+| Test_02_Newtonsoft_JSON_NET_01_Serialize_People | 683.37 ns |    9 | 0.2232 |      - |    1872 B |
+| Test_02_Newtonsoft_JSON_NET_02_Deserialize      | 389.42 ns |    8 | 0.3257 | 0.0005 |    2728 B |
+| Test_03_SpanJSON_01_Serialize                   |  53.10 ns |    1 | 0.0134 |      - |     112 B |
+| Test_03_SpanJSON_02_Deserialize                 |  85.77 ns |    3 | 0.0143 |      - |     120 B |
+| Test_04_NetJSON_01_Serialize                    |  67.52 ns |    2 | 0.0172 |      - |     144 B |
+| Test_04_NetJSON_02_Deserialize                  | 163.88 ns |    5 | 0.0296 |      - |     248 B |
+
+
+
+
 ### 20250531
 
 Weather
