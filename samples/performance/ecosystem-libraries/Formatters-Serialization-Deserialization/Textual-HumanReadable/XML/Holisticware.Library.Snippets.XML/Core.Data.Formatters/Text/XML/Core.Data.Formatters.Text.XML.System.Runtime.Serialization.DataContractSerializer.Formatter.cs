@@ -1,5 +1,12 @@
 namespace Core.Data.Formatters.Text.XML.System.Runtime.Serialization.DataContractSerializer;
 
+/// <summary>
+///
+/// Sensitive to
+///     XML namespaces
+///     Attributes - opt in serializer (must be told what needs to be serialized)
+///         
+/// </summary>
 public partial class
                                         Formatter
 {
@@ -68,6 +75,8 @@ public partial class
                                             string xml
                                         )
     {
+        T? result = default(T);
+        
         Type type = typeof(T);
         global::System.Runtime.Serialization.DataContractSerializer serializer = new
                                                                                     (
@@ -75,11 +84,12 @@ public partial class
                                                                                         type.Name,
                                                                                         ""
                                                                                     );
-        using global::System.Xml.XmlReader reader = global::System.Xml.XmlReader.Create(new StringReader(xml));
+        using (global::System.Xml.XmlReader reader = global::System.Xml.XmlReader.Create(new StringReader(xml)))
+        {
+            result = (T)serializer.ReadObject(reader);
+        }
         
-        T? t = (T)serializer.ReadObject(reader);
-
-        return t;
+        return result;
     }
     
     public static
@@ -89,11 +99,15 @@ public partial class
                                             string xml
                                         )
     {
+        T? result = default(T);
+        
         global::System.Runtime.Serialization.DataContractSerializer serializer = Cache[typeof(T)];
-        using global::System.Xml.XmlReader reader = global::System.Xml.XmlReader.Create(new StringReader(xml));
-        T? t = (T) serializer?.ReadObject(reader);
-
-        return t;
+        using (global::System.Xml.XmlReader reader = global::System.Xml.XmlReader.Create(new StringReader(xml)))
+        {
+            T? t = (T)serializer?.ReadObject(reader);
+        }
+        
+        return result;
     }
 
 
