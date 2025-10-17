@@ -16,13 +16,18 @@ Summary summary_json_person = BenchmarkRunner.Run<Benchmarks_JSON_Person>();
 string root = "../../../../Holisticware.Library.Snippets.XML/Data/";
 string file;
 
-Benchmarks_XML_Person bm = new();
+Benchmarks_XML_Person bm_xml = new();
+Benchmarks_JSON_Person bm_json = new();
 
 string content = string.Empty;
 Person? person = null;
 
-content = bm.Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeCached();
-person = bm.Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeNaive();
+content = bm_xml.Test_02_System_Runtime_Serialization_DataContractSerializer_01_SerializeCached();
+person = bm_xml.Test_02_System_Runtime_Serialization_DataContractSerializer_02_DeserializeNaive();
+
+content = bm_json.Test_01_System_Text_Json_01_Serialize();
+content = bm_json.Test_02_Newtonsoft_JSON_NET_01_Serialize_People();
+person = bm_json.Test_01_System_Text_Json_02_Deserialize();
 
 /*
 //Console.WriteLine(summary_w);();
