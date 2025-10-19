@@ -109,13 +109,19 @@
 
     *   https://github.com/ExtendedXmlSerializer/home
 
+    *   https://extendedxmlserializer.readthedocs.io/en/latest/get-started/index.html
+
 *   NetBike.Xml
+
+    *   https://github.com/netbike/netbike.xml
 
 *   StackXML
 
+    *   https://github.com/ZingBallyhoo/StackXML
+
 *   YAXLib
 
-*   NetBike.Xml
+    *   https://github.com/YAXLib/YAXLib
 
 *   SOAP
 
