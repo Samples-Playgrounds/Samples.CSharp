@@ -265,43 +265,22 @@ public partial class
     [Benchmark]
     public
         string?
-                                        Test_03_YAXLib_01_SerializeNaive
+                                        Test_03_YAXLib_01_Serialize
                                         (
                                         )
     {
-        return FormatterYAXLib.SerializeNaive<Person>(obj_person);
-    }
-    
-    [Benchmark]
-    public
-        string?
-                                        Test_03_YAXLib_01_SerializeCached
-                                        (
-                                        )
-    {
-        return FormatterYAXLib.SerializeCached<Person>(obj_person);
+        return FormatterYAXLib.Serialize<Person>(obj_person);
     }
     
     [Benchmark]
     public
         Person?
-                                        Test_03_YAXLib_02_DeserializeNaive
+                                        Test_03_YAXLib_02_Deserialize
                                         (
                                         )
     {
-        return FormatterYAXLib.DeserializeNaive<Person>(xml_person);
+        return FormatterYAXLib.Deserialize<Person>(xml_person);
     }
-    
-    [Benchmark]
-    public
-        Person?
-                                        Test_03_YAXLib_02_DeserializeCached
-                                        (
-                                        )
-    {
-        return FormatterYAXLib.DeserializeCached<Person>(xml_person);
-    }
-    
     
     
     
