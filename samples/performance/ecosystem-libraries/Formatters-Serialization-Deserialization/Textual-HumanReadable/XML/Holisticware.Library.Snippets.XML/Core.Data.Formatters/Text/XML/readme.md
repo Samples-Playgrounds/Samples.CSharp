@@ -39,3 +39,5 @@ Apple M4 Max, 1 CPU, 16 logical and 16 physical cores
 ## Diverse
 
 *   https://kalapos.net/Blog/ShowPost/how-the-evil-system-xml-serialization-xmlserializer-class-can-bring-a-server-with-32gb-ram-down
+
+*   https://www.reddit.com/r/csharp/comments/dqkgtr/is_there_no_really_good_xml_serialization_library/
