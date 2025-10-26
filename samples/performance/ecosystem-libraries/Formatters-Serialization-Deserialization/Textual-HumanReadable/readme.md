@@ -62,8 +62,6 @@
 
     *   https://serdedotnet.github.io/overview.html
 
-*   Protobuf.net
-
 *   https://github.com/trampster/JsonBenchmark
 
 *   https://medium.com/justeattakeaway-tech/json-serialization-libraries-performance-tests-b54cbb3cccbb
