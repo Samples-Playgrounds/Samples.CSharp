@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AppConsole.Tests.Benchmarks.Globbing/AppConsole.Tests.Benchmarks.Globbing.csproj" />
+  <Project Path="Holisticware.Library.Snippets.Globbing/Holisticware.Library.Snippets.Globbing.csproj" />
+</Solution>
