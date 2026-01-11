@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HolisticWare.Library.Snippets.Variables.vs.Constants", "HolisticWare.Library.Snippets.Variables.vs.Constants\HolisticWare.Library.Snippets.Variables.vs.Constants.csproj", "{60DD1DCE-8D5E-4B30-B171-6F2E819FC37F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppConsole.Tests.Benchmarks.Variables.vs.Constants", "AppConsole.Tests.Benchmarks.Variables.vs.Constants\AppConsole.Tests.Benchmarks.Variables.vs.Constants.csproj", "{C6AEF194-9D16-428E-ACB3-E581AF337E80}"
+EndProject
+Global
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6AEF194-9D16-428E-ACB3-E581AF337E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6AEF194-9D16-428E-ACB3-E581AF337E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6AEF194-9D16-428E-ACB3-E581AF337E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6AEF194-9D16-428E-ACB3-E581AF337E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60DD1DCE-8D5E-4B30-B171-6F2E819FC37F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60DD1DCE-8D5E-4B30-B171-6F2E819FC37F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60DD1DCE-8D5E-4B30-B171-6F2E819FC37F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60DD1DCE-8D5E-4B30-B171-6F2E819FC37F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+EndGlobal
